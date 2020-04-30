@@ -18,7 +18,7 @@ $.fn.constructDataCall =  function(thisData,addCookie){
         
     var dataCall = []; var json; 
     //On fusionne le tableau des options   
-        console.log(thisData);
+    
     dataCall = $.extend({}, dataCall,dataListSelect);     
     dataCall = $.extend({}, dataCall, thisData);     
     dataCall = $.extend({}, dataCall, O);        
@@ -58,8 +58,9 @@ $.fn.postAjax = function(url,json,callback){
             },
             error:  function(R)  { 
                 console.log(R);
+                console.log(R.responseText);
            
-            console.log('Erreur SQL. Contacter votre admin, case :'+R.action); }
+            console.error('Erreur SQL. Contacter votre admin, case :'+R.action); }
             });       
         };     
     

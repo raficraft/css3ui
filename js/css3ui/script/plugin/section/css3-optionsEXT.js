@@ -25,28 +25,27 @@ $(document).ready(function() {
    O = {};
    O ={
        
-       dataBase : 'CMA',
-       dataBaseUser : 'root',
-       dataBasePass : '',       
-       
-       user : 'pseudo',
-       serial : '3197-3896-4816-0469',
-       unity:'em', 
-       prefixCss : true,
-       buffer : '#tampon', 
-       
-       
-       
-       dirProject : '/css3ui/js/yourproject/' ,
-       dirExtract : '/myWeb/css/' , 
-       dirWorkImg : '/myWeb/plugImg'  ,      
-       dirRoot : '/css3ui/' , 
-       dirPlug : '/css3ui/js/css3ui',      
-       dirImg : '/css3ui/js/img',  
-       
-       
-       dirOnline : '/'
-              
+    dataBase: 'cma',
+      dataBaseUser: 'root',
+      dataBasePass: '',
+
+      user: 'pseudo',
+      serial: '3197-3896-4816-0469',
+      unity: 'em',
+      prefixCss: true,
+      buffer: '#tampon',
+
+      dirProject: '/css3ui/js/yourproject/',
+      dirExtract: '/css3ui/js/css3ui/core/css/final',
+      dirWorkImg: '/myWeb/plugImg',
+      dirRoot: '/css3ui/',
+      dirPlug: '/css3ui/js/css3ui',
+      dirImg: '/css3ui/js/img',
+      rightClick: false,
+      limit: 'all',
+
+
+      dirOnline: '/'
               
                  
     };    

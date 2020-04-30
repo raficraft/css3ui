@@ -22,7 +22,7 @@ incTagOver = 0;
     
 $(O.buffer+' *').on("click",function(event){    
   
-    console.log('click Dom');
+    
         cible =  $(this).tagName(); 
      
         buildCible = "<a href="+cible+" class="+"selCss"+" data-type="+"cible"+">"+cible+"</a>";

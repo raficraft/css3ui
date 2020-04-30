@@ -1470,16 +1470,16 @@ $(document).keydown(function(e) {
     
     $('.css3ui').each(function(){
         
-                    console.log($(this).attr('id'));
+                
                     if($(this).hasClass('css3ui-shazam')){
                     $(this).removeClass('css3ui-shazam');
                   
                        $.cookie('viewUI','true');
-                        console.log('rmove');
+                    
                     }else{
                         $(this).addClass('css3ui-shazam');
                        $.cookie('viewUI','false');
-                        console.log('add');
+                    
                     }
         
     });
