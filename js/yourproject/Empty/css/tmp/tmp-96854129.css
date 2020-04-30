@@ -1,0 +1,22 @@
+
+/* Projet : Empty */
+
+/*Feuille de style : ZoneDeTest*/
+#tampon .bloc-main:not(.css3ui):not(.toolsIcon){
+margin : 1px;
+margin-top : 1px;
+box-shadow : 0px 0px 32px 1px rgba(0,0,0,1) inset;
+padding : 24px;
+background-image : -webkit-linear-gradient(90deg, rgba(255,255,255,1)1% ,rgba(0,0,0,1)100%);
+background-image : -moz-linear-gradient(90deg, rgba(255,255,255,1)1% ,rgba(0,0,0,1)100%);
+background-image : -o-linear-gradient(90deg, rgba(255,255,255,1)1% ,rgba(0,0,0,1)100%);
+background-image : -ms-linear-gradient(90deg, rgba(255,255,255,1)1% ,rgba(0,0,0,1)100%);
+background-image : linear-gradient(90deg, rgba(255,255,255,1)1% ,rgba(0,0,0,1)100%);
+}
+#tampon FOOTER:not(.css3ui):not(.toolsIcon){
+height : 160px;
+width : 100%;
+border : 1px solid rgba(0,0,0,1);
+padding : 8px;
+background-color : rgba(204,47,51,1);
+}
