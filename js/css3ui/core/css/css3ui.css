@@ -2531,3 +2531,22 @@ display : flex;
 .icon:hover{
     background : rgba(255,70,60,1);    
 }
+
+
+#tampon h1 {
+    
+    margin :5em;
+    padding : 1em;
+    border : 12px solid;
+    
+}
+
+
+.CMA-displayDom{background-color: rgba(60,180,255,0.5)}
+
+.divVide{
+    background: url("https://picsum.photos/1640/600");
+    content : '';
+    width:1640px;
+    height: 600px;
+}

@@ -2,10 +2,10 @@ $(document).ready(function() {
     
     
     $.fn.displayDomEl = function (el) {
-
-   
-        if (el.css) {
-            el.addClass('c3-views');
+        
+        $(el).addClass('CMA-displayDom');
+        
+     if (el.css) {
 
             var elMargin = {}, elPadding = {}, elBorder = {}, elPos = {};
 

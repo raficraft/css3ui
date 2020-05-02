@@ -19,7 +19,31 @@ $(document).ready(function() {
    */
 
   
+//nouveau tableau de données
 
+
+ console.log('constante');
+
+$.fn.tagName = function () { return this.get(0).tagName; };
+
+
+
+
+D = {};
+
+D = {
+    param: {
+        plugName: "css3ui",
+        domLimit: 5,
+        nameDataAttr: 'cma',
+        viewALLattribute: false
+    },
+    dom: {
+        domCursorPath: ''
+    }
+};
+    
+    
     
         
    O = {};
@@ -55,7 +79,7 @@ $(document).ready(function() {
         O.dirBackImg = '/css3ui/js/yourproject/'+$.cookie('project')+'/img/background/';
     }
 
-
+  console.table($.cookie());
     console.log(O);
     
     });

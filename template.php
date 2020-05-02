@@ -17,8 +17,8 @@
 <section id="tampon">
 <section id="global" class="global">
         
-    <section id="front">
-         <h1>Google</h1>
+    <section id="front" class="front">
+         <h1 id="salut" class="hello">Google</h1>
          <div class="bloc-shearch">
              <span><input class="css3ui-search" type="text" placeholder="🔎 Search"></span>
              <span class="input-button">
@@ -40,9 +40,22 @@
                  </ul>
          
          
-                 <ul class="test-UI gradientRed"><li>
+                 <ul class="test-UI gradientRed">
+                     <li>
                          <a href="#">Feuille de style</a>
-             </li>
+                    </li>
+                     <li>
+                         <a href="#">Feuille de style</a>
+                    </li>
+                     <li>
+                         <a href="#">Feuille de style</a>
+                    </li>
+                     <li>
+                         <a href="#">Feuille de style</a>
+                    </li>
+                     <li>
+                         <a href="#">Feuille de style</a>
+                    </li>
                  </ul>
          
                  <ul class="test-UI gradientBlue"><li>
@@ -50,6 +63,21 @@
              </li>
                  </ul>
          
+         <img src="https://picsum.photos/1640/600"/>
+         
+         <div class="divVide">
+             
+         </div>
+         
+         <p>Lorem cecicel</p>
+         <p>Lorem cecicel</p>
+         <p>Lorem cecicel</p>
+         <p>Lorem cecicel</p>
+         <p>Lorem cecicel</p>
+         <p>Lorem cecicel</p>
+         <p>Lorem cecicel</p>
+         <p>Lorem cecicel</p>
+         <p>Lorem cecicel</p>
     </section>
 
    
@@ -61,11 +89,17 @@
     
         <?php   include_once('js/css3ui/css3ui.php');   ?>
     
-    
-    <script type="text/javascript" src="/css3ui/js/css3ui/script/integrate/JQ/my_jquery.js"></script>
-<script type="text/javascript" src="/css3ui/js/css3ui/script/integrate/JQ/jquery-migrate-1.2.1.js"></script>
+ <script
+			  src="https://code.jquery.com/jquery-3.5.0.min.js"
+			  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+			  crossorigin="anonymous"></script>
+                          
+                          
+                          <script
+			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			  crossorigin="anonymous"></script>
 <script type="text/javascript" src="/css3ui/js/css3ui/script/integrate/cookie/src/cookie.js"></script>
-<script type="text/javascript" src="/css3ui/js/css3ui/script/integrate/jqueryui/jquery-ui.js"></script>
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-optionsEXT.js"></script>
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-util.js"></script>
 
@@ -77,8 +111,9 @@
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-ui.js"></script>
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-ajax.js"></script>
 
-<script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/dom/css3-dom.js"></script>
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/dom/displayDom.js"></script>
+<script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/dom/css3-dom.js"></script>
+
 
 
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-load.js"></script>
