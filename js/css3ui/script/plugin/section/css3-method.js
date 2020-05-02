@@ -256,7 +256,7 @@ $.fn.createRule = function(method,el){
                         }
                       
                         /*Procedure de fin*/
-                        $('.views').removeClass('views');
+                       
                         $(ruleHtml).not('.css3ui , .css3ui *').addClass('views');
                         $.cookie('ruleHtml',ruleHtml , { expires: 70});
 

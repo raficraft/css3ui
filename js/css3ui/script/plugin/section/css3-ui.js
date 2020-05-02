@@ -1465,6 +1465,7 @@ $(document).keydown(function(e) {
       
          
         $(this).viewDom();
+         $('.CMA-displayDom').removeClass('CMA-displayDom');
         
         //GESTION DE L AFFICHAGE de L INTERFACE
     

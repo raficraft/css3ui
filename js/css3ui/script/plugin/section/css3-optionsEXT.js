@@ -39,7 +39,8 @@ D = {
         viewALLattribute: false
     },
     dom: {
-        domCursorPath: ''
+        domCursorPath: '',
+        imgEl : false
     }
 };
     

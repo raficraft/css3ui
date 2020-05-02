@@ -66,7 +66,7 @@
          <img src="https://picsum.photos/1640/600"/>
          
          <div class="divVide">
-             
+             <a href="http://www.google.fr">Vers google</a>
          </div>
          
          <p>Lorem cecicel</p>

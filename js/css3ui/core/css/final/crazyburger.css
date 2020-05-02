@@ -55,6 +55,14 @@ background-color : rgba(166,88,60,1);
 pr-color-justRight{
 background-color : rgba(64,27,19,1);
 }
+h1{
+margin : 5em;
+padding : 2em;
+border : 8px solid rgba(255,255,255,1);
+width : 100%;
+}
+reset{
+}
 /*Icon hamburger*/
 
 .menu-icon{
@@ -111,7 +119,4 @@ transition : background 0.5s linear 0s,transform 0.5s linear 0s;
 }
 .menu-icon-cross svg{
 background : rgba(64,27,19,1);
-}
-Icon hamburger{
-background-color : tranparent;
 }

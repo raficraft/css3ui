@@ -44,7 +44,12 @@ $(document).ready(function () {
 
             $("BODY, BODY *").not(".css3ui ,.css3ui *").on("click", function (e) {
 
+            //Cette verification de la longueur du tableau
+            //Permet desactiver certains input de l'interface (input[type=""], checkbox, bouton radio)
+            //Car ils sont eux même compris dans le body.
+            if(buildAll.length>0){
                 event.preventDefault();
+            }
                 cible = $(this).tagName();
                 console.log(cible);
 
@@ -106,7 +111,8 @@ $(document).ready(function () {
 
                             buildAll.reverse();
                             //  console.log(buildAll);
-                            console.log(buildAll);
+                            console.error(buildAll);
+                            console.error(buildAll.length);
                             //AJouter le limitateur d'affichage au cas ou l'element pointé ce trouve dans énormement de parent.
                             $('#selAdd').append(buildAll);
                             buildAll = [];

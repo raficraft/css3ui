@@ -55,6 +55,14 @@ background-color : rgba(166,88,60,1);
 #tampon pr-color-justRight:not(.css3ui):not(.toolsIcon){
 background-color : rgba(64,27,19,1);
 }
+#tampon h1:not(.css3ui):not(.toolsIcon){
+margin : 5em;
+padding : 2em;
+border : 8px solid rgba(255,255,255,1);
+width : 100%;
+}
+#tampon reset:not(.css3ui):not(.toolsIcon){
+}
 /*Icon hamburger*/
 
 #tampon .menu-icon:not(.css3ui):not(.toolsIcon){
@@ -115,7 +123,4 @@ transition : background 0.5s linear 0s,transform 0.5s linear 0s;
 }
 #tampon .menu-icon-cross svg:not(.css3ui):not(.toolsIcon){
 background : rgba(64,27,19,1);
-}
-#tampon Icon hamburger:not(.css3ui):not(.toolsIcon){
-background-color : tranparent;
 }

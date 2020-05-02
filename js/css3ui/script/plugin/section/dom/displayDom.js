@@ -1,36 +1,37 @@
 $(document).ready(function() {
     
     
-    $.fn.displayDomEl = function (el) {
+    $.fn.displayDomEl = function (el) {      
         
-        $(el).addClass('CMA-displayDom');
-        
-     if (el.css) {
+     if ($(el).css) {
 
             var elMargin = {}, elPadding = {}, elBorder = {}, elPos = {};
 
             var elW, elW;
+            
+            
+            $(el).css('margin-top')     ? elMargin.top = parseFloat($(el).css('margin-top').substring(0, $(el).css('margin-top').length - 2))          : elMargin.top = 0;
+            $(el).css('margin-right')   ? elMargin.right = parseFloat($(el).css('margin-right').substring(0, $(el).css('margin-right').length - 2))    : elMargin.right = 0;
+            $(el).css('margin-bottom')  ? elMargin.bottom = parseFloat($(el).css('margin-bottom').substring(0, $(el).css('margin-bottom').length - 2)) : elMargin.top = 0;
+            $(el).css('margin-left')    ? elMargin.left = parseFloat($(el).css('margin-left').substring(0, $(el).css('margin-left').length - 2))       : elMargin.top = 0;
 
-            elMargin.top = parseFloat($(el).css('margin-top').substring(0, $(el).css('margin-top').length - 2));
-            elMargin.right = parseFloat($(el).css('margin-right').substring(0, $(el).css('margin-right').length - 2));
-            elMargin.bottom = parseFloat($(el).css('margin-bottom').substring(0, $(el).css('margin-bottom').length - 2));
-            elMargin.left = parseFloat($(el).css('margin-left').substring(0, $(el).css('margin-left').length - 2));
 
+            $(el).css('padding-top')    ?  elPadding.top = parseFloat($(el).css('padding-top').substring(0, $(el).css('padding-top').length - 2))          : elPadding.top = 0;
+            $(el).css('padding-right')  ?  elPadding.right = parseFloat($(el).css('padding-right').substring(0, $(el).css('padding-right').length - 2))    : elPadding.right = 0;
+            $(el).css('padding-bottom') ?  elPadding.bottom = parseFloat($(el).css('padding-bottom').substring(0, $(el).css('padding-bottom').length - 2)) : elPadding.bottom = 0;
+            $(el).css('padding-left')   ?  elPadding.left = parseFloat($(el).css('padding-left').substring(0, $(el).css('padding-left').length - 2))       : elPadding.left = 0;
 
-            elPadding.top = parseFloat($(el).css('padding-top').substring(0, $(el).css('padding-top').length - 2));
-            elPadding.right = parseFloat($(el).css('padding-right').substring(0, $(el).css('padding-right').length - 2));
-            elPadding.bottom = parseFloat($(el).css('padding-bottom').substring(0, $(el).css('padding-bottom').length - 2));
-            elPadding.left = parseFloat($(el).css('padding-left').substring(0, $(el).css('padding-left').length - 2));
+            $(el).css('border-top')     ?  elBorder.top = parseFloat($(el).css('borderTopWidth').substring(0, $(el).css('borderTopWidth').length - 2))          : elBorder.top = 0;
+            $(el).css('border-right')   ?  elBorder.right = parseFloat($(el).css('borderRightWidth').substring(0, $(el).css('borderRightWidth').length - 2))    : elBorder.right = 0;
+            $(el).css('border-bottom')  ?  elBorder.bottom = parseFloat($(el).css('borderBottomWidth').substring(0, $(el).css('borderBottomWidth').length - 2)) : elBorder.bottom = 0;
+            $(el).css('border-left')    ?  elBorder.left = parseFloat($(el).css('borderLeftWidth').substring(0, $(el).css('borderLeftWidth').length - 2))       : elBorder.left = 0 ;
+            
+          
 
-            elBorder.top = parseFloat($(el).css('borderTopWidth').substring(0, $(el).css('borderTopWidth').length - 2));
-            elBorder.right = parseFloat($(el).css('borderRightWidth').substring(0, $(el).css('borderRightWidth').length - 2));
-            elBorder.bottom = parseFloat($(el).css('borderBottomWidth').substring(0, $(el).css('borderBottomWidth').length - 2));
-            elBorder.left = parseFloat($(el).css('borderLeftWidth').substring(0, $(el).css('borderLeftWidth').length - 2));
+            $(el).position() ? elPos = $(el).position() : elPos = {top : 0 , left : 0};
 
-            elPos = $(el).position();
-
-            elW = parseFloat($(el).css('width').substring(0, $(el).css('width').length - 2));
-            elH = parseFloat($(el).css('height').substring(0, $(el).css('height').length - 2));
+            $(el).css('padding-top') ? elW = parseFloat($(el).css('width').substring(0, $(el).css('width').length - 2))  : elW = 0;
+            $(el).css('padding-top') ? elH = parseFloat($(el).css('height').substring(0, $(el).css('height').length - 2)):elH =0;
 
 
 
@@ -137,7 +138,8 @@ $(document).ready(function() {
 
 
             };
-
+     
+              $(el).addClass('CMA-displayDom');
 
             ///Dysgap///
             //Affiche des marge dans son lot de span //
