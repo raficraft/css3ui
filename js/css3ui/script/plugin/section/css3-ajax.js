@@ -57,8 +57,8 @@ $.fn.postAjax = function(url,json,callback){
             
             },
             error:  function(R)  { 
-                console.error(R);
-                console.error(R.responseText);
+                console.log(R);
+                console.log(R.responseText);
            
             console.error('Erreur SQL. Contacter votre admin, case :'+R.action); }
             });       

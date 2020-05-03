@@ -11,9 +11,6 @@ $(document).ready(function() {
 
 $.fn.dataRule = function(thisData){
     
-   
-    
-    
     
     console.log('on recupére les data de la rule '+thisData.groupname);
     console.log(thisData);

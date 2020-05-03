@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 $tab_css_font_family = array(    
     '' => 'Aucun',
     'none'=>'none',
