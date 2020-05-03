@@ -2,3 +2,4 @@
 *.psd
 /nbproject
 /node_modules
+/yourproject *

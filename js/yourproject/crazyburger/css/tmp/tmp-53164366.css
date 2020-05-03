@@ -61,8 +61,6 @@ padding : 2em;
 border : 8px solid rgba(255,255,255,1);
 width : 100%;
 }
-reset:not(.EX-UI){
-}
 /*Icon hamburger*/
 
 .menu-icon:not(.EX-UI){
@@ -83,7 +81,7 @@ cursor : pointer;
 .menu-icon span:not(.EX-UI){
 display : block;
 position : absolute;
-content : blank;
+content : " ";
 width : 22px;
 height : 2px;
 background-color : rgba(255,255,255,1);
@@ -91,7 +89,7 @@ transform : translateX(-50%) translateY(50%);
 top : 50%;
 left : 50%;
 }
-.menu-icon span::before:not(.EX-UI),.menu-icon span::after:not(.EX-UI){
+.menu-icon span::before,.menu-icon span::after{
 display : block;
 position : absolute;
 width : 22px;
@@ -99,15 +97,15 @@ height : 2px;
 background-color : rgba(255,255,255,1);
 transform : translateY(-6px);
 transition : all 500ms linear 0s;
-content : blank;
+content : " ";
 }
-.menu-icon span::after:not(.EX-UI){
+.menu-icon span::after{
 transform : translateY(6px);
 }
-.menu-icon:hover span::before:not(.EX-UI){
+.menu-icon:hover span::before{
 transform : translateY(-8px);
 }
-.menu-icon:hover span::after:not(.EX-UI){
+.menu-icon:hover span::after{
 transform : translateY(8px);
 }
 /*menu-icon-cross*/
@@ -115,7 +113,7 @@ transform : translateY(8px);
 .menu-icon-cross:not(.EX-UI){
 transition : all 500ms linear 0s;
 }
-.menu-icon-cross span::before:not(.EX-UI),.menu-icon span::after:not(.EX-UI){
+.menu-icon-cross span::before,.menu-icon span::after{
 transform-origin : 50% 50%;
 }
 .menu-icon-cross span:not(.EX-UI){

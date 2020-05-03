@@ -15,16 +15,16 @@ cible.empty();
                    /*Construction du TABLEAU*/ 
               
                     
-    myHtml+='<ul class="ULProject flexColumn-noWrap">';
+    myHtml+='<ul class="ULProject flexColumn-noWrap EX-UI">';
                 $.each(R.Allproject, function(k,v) { 
                     
                     console.log('hou hou');
                     
                 myHtml += '<li data-action="open" '+
                             'data-table="project" data-id="'+v.idProject+'" '+
-                            'data-projectName="'+v.project+'" data-rightClick="true" >'+
+                            'data-projectName="'+v.project+'" data-rightClick="true" class="EX-UI" >'+
                             
-                            '<a class="thisProject" href="project_'+v.idProject+'" '+
+                            '<a class="thisProject EX-UI" href="project_'+v.idProject+'" '+
                             'data-action="open" '+
                             'data-table="project" data-id="'+v.idProject+'" '+
                             'data-projectname="'+v.project+'" data-rightClick="true" '+
@@ -38,10 +38,10 @@ cible.empty();
 
     }else{
 
-        myHtml += "<ul><li>Aucun projet enregistrer dans la base de données. \n\
-                    Pour créer un projet, faites un clic droit\n\
-                    sur l'icone en forme de cerveau.\n\
-                     </br>Puis selectionné ' New-project '.</li></ul>";
+        myHtml += '<ul class="EX-UI" ><li>Aucun projet enregistrer dans la base de données. '+
+                    'Pour créer un projet, faites un clic droit '+
+                    'sur l\'icone en forme de cerveau. '+
+                     '</br>Puis selectionné \' New-project \'.</li></ul>';
         $(myHtml).appendTo(cible);          
     }    
   };  
@@ -83,7 +83,7 @@ $.each(el,function(key,thisEl){
             }
           
             //On affiche le group          
-            listEl +='<li class="itemData '+stateGroup+' itemData-'+thisEl.format+'"  \n\
+            listEl +='<li class="itemData '+stateGroup+' itemData-'+thisEl.format+' EX-UI"  \n\
                         data-table="group"  data-rightClick="true" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -95,7 +95,7 @@ $.each(el,function(key,thisEl){
                         data-state="'+thisEl.actif+'" \n\
                         '+haveRuleCss+' \n\
                         data-myparent="'+thisEl.myParent+'">\n\
-                        <a data-css3ui="openGroup" data-el="clickArrow_'+thisEl.idToGroup+'"\n\
+                        <a data-css3ui="openGroup" data-el="clickArrow_'+thisEl.idToGroup+'" class="EX-UI"\n\
                         data-table="group" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -107,7 +107,7 @@ $.each(el,function(key,thisEl){
                         data-state="'+thisEl.actif+'" \n\
                         '+haveRuleCss+' \n\
                         data-myparent="'+thisEl.myParent+'">&#9654</a>\n\
-                        <a data-css3ui="listRule"  data-el="clickGroup_'+thisEl.idToGroup+'" \n\
+                        <a data-css3ui="listRule"  data-el="clickGroup_'+thisEl.idToGroup+'" class="EX-UI"\n\
                         data-table="group" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -126,7 +126,7 @@ $.each(el,function(key,thisEl){
                     if(thisEl.rule){
                       
                             
-                    listEl +='<ul class="hidden listData listData-rule" data-table="rule" >';                
+                    listEl +='<ul class="hidden listData listData-rule EX-UI" data-table="rule" >';                
                     $.each(thisEl.rule,function(k,zeRule){
                     
                         var ruleIMP = '';
@@ -138,20 +138,20 @@ $.each(el,function(key,thisEl){
                             ruleIMP = 'itemData-rule-disable';
                         }
                         
-                    listEl +=   '<li class="itemData-rule '+ruleIMP+'" data-table="rule" \n\
+                    listEl +=   '<li class="itemData-rule '+ruleIMP+' EX-UI" data-table="rule" \n\
                                 data-idlinkrule="'+zeRule.id_linkRule+'" \n\
                                 data-el="rule_'+zeRule.id_linkRule+'" \n\
                                 data-rightClick="true" \n\
                                 data-rulecss="'+zeRule.rule+'" \n\
                                 data-valcss="'+zeRule.css+'" \n\
                                 data-myparent="'+thisEl.idToGroup+'" >\n\
-                                <a>'+zeRule.rule+' :</a><a>'+zeRule.css+'</a>\n\
+                                <a class="EX-UI">'+zeRule.rule+' :</a><a class="EX-UI">'+zeRule.css+'</a>\n\
                                 </li>';     
                    
                     });
                     listEl +='</ul>';
                     }else{
-                           listEl += '<ul class="'+addClass+' listData listData-group listData-group-empty"><li><a class="item-data">Groupe empty</a></li></ul>';
+                           listEl += '<ul class="'+addClass+' listData listData-group listData-group-empty EX-UI"><li class="EX-UI"><a class="item-data EX-UI">Groupe empty</a></li></ul>';
                 
                     }
                 }
@@ -159,7 +159,7 @@ $.each(el,function(key,thisEl){
                 //On test si il y as un noeud
                 
                 if(thisEl.group){                           
-                    listEl +='<ul class="'+addClass+' listData listData-group" \n\
+                    listEl +='<ul class="'+addClass+' listData listData-group EX-UI" \n\
                                data-level="'+thisEl.level+'" data-table="group">';
                     $(this).createListData('group',thisEl.group);
                     listEl +='</ul>';
@@ -167,7 +167,7 @@ $.each(el,function(key,thisEl){
                 }
                 
                 if(thisEl.format !== 'ruleHtml' && thisEl.child === false){
-                  listEl += '<ul class="'+addClass+' listData listData-group listData-group-empty"><li><a class="item-data">Groupe empty</a></li></ul>';
+                  listEl += '<ul class="'+addClass+' listData listData-group listData-group-empty EX-UI"><li class="EX-UI"><a class="item-data EX-UI">Groupe empty</a></li></ul>';
                 
             } 
              
@@ -215,17 +215,17 @@ $('#styleDb,#css3ui-listData').empty();
               
                 
                 //On construit la structure de la navigation par onglets.
-                myHtml +=' <h1 class="legendInside">Feuille de style.</h1>'+
-                         '<ul id="css3ui-tabListData" class="listSheet tabBasic">';
+                myHtml +=' <h1 class="legendInside EX-UI">Feuille de style.</h1>'+
+                         '<ul id="css3ui-tabListData" class="listSheet tabBasic EX-UI">';
                 
                 $.each(R.style,function(k,v){
                     
                 //On renomme les variables de la feuilles des styles                
                 var idSheet = v.idSheet , sheet = v.sheet;
-                myHtml += '<li><a href="#'+sheet+'" data-sheetname="'+sheet+'" ';
+                myHtml += '<li class="EX-UI"><a href="#'+sheet+'" data-sheetname="'+sheet+'" class="EX-UI"';
                 if(sheet===$.cookie('sheet')){
                   
-                        myHtml += 'class="css3ui-tabListData_active" '; selectFirst=false;}
+                        myHtml += 'class="css3ui-tabListData_active EX-UI" '; selectFirst=false;}
                 else{
                      
                     if(k===R.style.length){    
@@ -246,17 +246,17 @@ $('#styleDb,#css3ui-listData').empty();
                 
                 
                 var to = 
-                        '<div id="css3ui-listData" class="groupSortable">\n\
-                        <div id="styleSheet" class="styleSheet"></div>\n\
+                        '<div id="css3ui-listData" class="groupSortable EX-UI">\n\
+                        <div id="styleSheet" class="styleSheet EX-UI"></div>\n\
                         </div>\n\
-                        <div class="css3ui-db bottom-panel">\n\
-                        <span class="bottom-input">\n\
-                            <span class="input"><textarea id="newRule" placeholder="make rule"></textarea></span>\n\
-                            <span class="input"><input id="css3ui-search" type="text" placeholder="&#128270 Search"></span>\n\
+                        <div class="css3ui-db bottom-panel EX-UI">\n\
+                        <span class="bottom-input EX-UI">\n\
+                            <span class="input EX-UI"><textarea id="newRule" placeholder="make rule" class="EX-UI"></textarea></span>\n\
+                            <span class="input EX-UI"><input class="EX-UI" id="css3ui-search" type="text" placeholder="&#128270 Search"></span>\n\
                         </span>\n\
-                        <span class="bottom-icon">\n\
-                        <a href="#callTo" data-action="callTo" data-text="add-group" data-switch="create" data-table="group">\n\
-                        <img src="/css3ui/js/css3ui/img/base/icon_css/css3ui-addFolder.png" alt="css3ui-addFolder" title="css3ui-addFolder" class="img32">\n\
+                        <span class="bottom-icon EX-UI">\n\
+                        <a href="#callTo" data-action="callTo" data-text="add-group" data-switch="create" data-table="group class="EX-UI"">\n\
+                        <img src="/css3ui/js/css3ui/img/base/icon_css/css3ui-addFolder.png" alt="css3ui-addFolder" title="css3ui-addFolder" class="img32 EX-UI">\n\
                         </a>\n\
                         </span>\n\
                         </div>';
@@ -272,11 +272,11 @@ $('#styleDb,#css3ui-listData').empty();
                  if(style.group){ child= 'data-child="true"'; }else{child= 'data-child="false"';}
                 
                     //Création de la div contenant les données de la feuille de style
-                     var listHtml ='<ul id="'+style.sheet+'" class="tabBasic listData listData-group"  \n\
+                     var listHtml ='<ul id="'+style.sheet+'" class="tabBasic listData listData-group EX-UI"  \n\
                                    data-sheet="'+style.sheet+'" data-id="'+style.idSheet+'" \n\
                                    data-table="sheet" data-level="0" data-el="root_0" \n\
                                    data-idlinkgroup="0" data-position="0" data-myparent="0" '+child+'  data-groupformat="comment">\n\
-                                   <ul class="listData listData-group" \n\
+                                   <ul class="listData listData-group EX-UI" \n\
                                    data-el="root" data-idlinkgroup="0"data-groupformat="comment">';
                    
                    
@@ -297,7 +297,7 @@ $('#styleDb,#css3ui-listData').empty();
                
             }else{
                 
-                var  advert =' <h1 class="legendInside"></h1><p class="paBasic">Votre projet ne contient aucune feuille de style \n\
+                var  advert =' <h1 class="legendInside EX-UI"></h1><p class="paBasic EX-UI">Votre projet ne contient aucune feuille de style \n\
                 </br>Pour ajouter une feuille de style . Faites un click droit sur l\'icone ""</br></br>\n\
                 Vous pouvez créer autant de feuille de style que vous le souhaitez\n\
                 </p>';
@@ -323,12 +323,12 @@ $('#styleDb,#css3ui-listData').empty();
                        
                        console.log(color);
                    
-                    myHtml = '<li>'+color.css+'</li>';
+                    myHtml = '<li class="EX-UI">'+color.css+'</li>';
                    
                     console.log(color.css);
-                        $('#biblio-color UL.thisBiblio.thisBiblio').append('<li class="flex" \n\
+                        $('#biblio-color UL.thisBiblio.thisBiblio').append('<li class="flex EX-UI" \n\
                         style="background-image : url('+O.dirPlug+'/img/base/icon_css/opacity.png);">\n\
-                        <a href="#" class="aColor" data-css="'+color.css+'" \n\
+                        <a href="#" class="aColor EX-UI" data-css="'+color.css+'" \n\
                         title="'+color.css+'"\n\
                         style="background : '+color.css+';">'+' '+'</a>\n\
                         </li>');  
@@ -341,9 +341,9 @@ $('#styleDb,#css3ui-listData').empty();
                    
                    $.each(R.biblio.background,function(k,background){
                        
-                        $('#biblio-background UL.thisBiblio').append('<li class="flex" \n\
+                        $('#biblio-background UL.thisBiblio').append('<li class="flex EX-UI" \n\
                         style="background-image : url('+O.dirPlug+'/img/base/icon_css/opacity.png);">\n\
-                        <a href="#" class="aColor" data-css="'+background.css+'" \n\
+                        <a href="#" class="aColor EX-UI" data-css="'+background.css+'" \n\
                         title="'+background.css+'"\n\
                         style="background : '+background.css+';">'+' '+'</a>\n\
                         </li>');  
@@ -356,9 +356,9 @@ $('#styleDb,#css3ui-listData').empty();
                    
                    $.each(R.biblio.multiBack,function(k,multiBack){
                        
-                        $('#biblio-multiBack UL.thisBiblio').append('<li class="flex" \n\
+                        $('#biblio-multiBack UL.thisBiblio').append('<li class="flex EX-UI" \n\
                         style="background-image : url('+O.dirPlug+'/img/base/icon_css/opacity.png);">\n\
-                        <a href="#" class="aColor" data-css="'+multiBack.css+'" \n\
+                        <a href="#" class="aColor EX-UI" data-css="'+multiBack.css+'" \n\
                         title="'+multiBack.css+'"\n\
                         style="background-image : '+multiBack.css+';">'+' '+'</a>\n\
                         </li>');  
@@ -371,9 +371,9 @@ $('#styleDb,#css3ui-listData').empty();
                    
                    $.each(R.biblioAll.multiBack,function(k,multiBack){
                        
-                        $('#biblio-multiBack UL.allBiblio').append('<li class="flex" \n\
+                        $('#biblio-multiBack UL.allBiblio').append('<li class="flex EX-UI" \n\
                         style="background-image : url('+O.dirPlug+'/img/base/icon_css/opacity.png);">\n\
-                        <a href="#" class="aColor" data-css="'+multiBack.css+'" \n\
+                        <a href="#" class="aColor EX-UI" data-css="'+multiBack.css+'" \n\
                         title="'+multiBack.css+'"\n\
                         style="background-image : '+multiBack.css+';">'+' '+'</a>\n\
                         </li>');  

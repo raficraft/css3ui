@@ -902,7 +902,7 @@ $.fn.multiBack= function(){
     
             
     //Preview         
-    $(dataPrev.ruleHtml).not('.css3ui , .css3ui *').css('background-image',thisPreview); 
+    $(dataPrev.ruleHtml).not('EX-UI').css('background-image',thisPreview); 
      
      
     var prevAtt,prevClip,prevOrigin,prevRepeat,prevSize,prevPos = '';
@@ -910,39 +910,39 @@ $.fn.multiBack= function(){
     if(tabO.att.length>0){ if(tabO.att.length>1){prevSize=tabO.att.join(',');
     }else if(tabO.att.length===1){  prevAtt=tabO.att;  } 
     //Preview et envoie à la bdd  
-    $(dataPrev.ruleHtml).not('.css3ui , .css3ui *').css('background-attachment',prevAtt);        
+    $(dataPrev.ruleHtml).not('EX-UI').css('background-attachment',prevAtt);        
     }
         
     
     if(tabO.clip.length>0){ if(tabO.clip.length>1){prevSize=tabO.clip.join(',');
     }else if(tabO.clip.length===1){  prevclip=tabO.clip;   }      
-    $(dataPrev.ruleHtml).not('.css3ui , .css3ui *').css('background-clip',prevClip);
+    $(dataPrev.ruleHtml).not('EX-UI').css('background-clip',prevClip);
     }
   
     
     if(tabO.origin.length>0){ if(tabO.origin.length>1){prevSize=tabO.origin.join(',');
     }else if(tabO.origin.length===1){  prevOrigin=tabO.origin; }      
-    $(dataPrev.ruleHtml).not('.css3ui , .css3ui *').css('background-origin',prevOrigin);    
+    $(dataPrev.ruleHtml).not('EX-UI').css('background-origin',prevOrigin);    
     }
     
     
     
     if(tabO.repeat.length>0){ if(tabO.repeat.length>1){prevSize=tabO.repeat.join(',');
     }else if(tabO.repeat.length===1){  prevRepeat=tabO.repeat; }      
-    $(dataPrev.ruleHtml).not('.css3ui , .css3ui *').css('background-repeat',prevRepeat); 
+    $(dataPrev.ruleHtml).not('EX-UI').css('background-repeat',prevRepeat); 
     }
    
     
     if(tabO.size.length>0){ if(tabO.size.length>1){prevSize=tabO.size.join(',');
     }else if(tabO.size.length===1){  prevSize=tabO.size;}      
-    $(dataPrev.ruleHtml).not('.css3ui , .css3ui *').css('background-size',prevSize);
+    $(dataPrev.ruleHtml).not('EX-UI').css('background-size',prevSize);
     }
     
      
     
     if(tabO.position.length>0){ if(tabO.position.length>1){prevSize=tabO.position.join(',');
     }else if(tabO.position.length===1){  prevPos=tabO.position;}      
-    $(dataPrev.ruleHtml).not('.css3ui , .css3ui *').css('background-position',prevPos); 
+    $(dataPrev.ruleHtml).not('EX-UI').css('background-position',prevPos); 
     }
  
     return thisPreview;

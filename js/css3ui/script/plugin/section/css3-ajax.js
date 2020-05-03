@@ -900,7 +900,7 @@ $.fn.ruleImportant =  function(thisData){
             /*Gestion du warning*/
             
             $('#css3ui-tabListData A[href="#css3uiWarning"]').parent().remove();       
-            var myHtml = '<li><a href="#css3uiWarning" class="css3uiWarning">! Search !</a></li>';
+            var myHtml = '<li class="EX-UI"><a href="#css3uiWarning" class="css3uiWarning EX-UI">! Search !</a></li>';
             $('#css3ui-tabListData').append(myHtml); 
             
             tabListOpen.length = 0;

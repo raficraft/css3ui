@@ -279,14 +279,14 @@ $(document).ready(function() {
                                  
                                   case 'project':
                                 
-                                var  myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look">'+
-                                '<h1 class="legendInside">Ajout d\'un projet</h1 >'+                                
-                                '<div class="sub-callTo flexColumn-noWrap">'+
-                                '<span class="text-classic">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
-                                '<input type="text" name="project" placeholder="newProject" data-focus="true"/>'+
-                                '<span class="input-callTo">'+
-                                '<input type="button" name="createProject" value="Ok" data-action="create" data-table="project"/>'+
-                                '<input type="button" value="annuler" data-action="cancel" />'+
+                                var  myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look EX-UI">'+
+                                '<h1 class="legendInside EX-UI">Ajout d\'un projet</h1 >'+                                
+                                '<div class="sub-callTo flexColumn-noWrap EX-UI">'+
+                                '<span class="text-classic EX-UI">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
+                                '<input type="text" name="project" placeholder="newProject" data-focus="true class="EX-UI"/>'+
+                                '<span class="input-callTo EX-UI">'+
+                                '<input type="button" name="createProject" value="Ok" data-action="create" data-table="project class="EX-UI"/>'+
+                                '<input type="button" value="annuler" data-action="cancel" class="EX-UI"/>'+
                                 '</span>'+
                                 '</div>'+
                                 '</fieldset>';
@@ -311,15 +311,15 @@ $(document).ready(function() {
                                         //work On doit pouvoir injecter la position et le dernier group ouvert
                                              
                                                 
-                                    var  myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look">'+
-                                    '<h1 class="legendInside">Ajout d\'un répertoire</h1>'+                                
-                                    '<div class="sub-callTo flexColumn-noWrap">'+
-                                    '<span class="text-classic">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
-                                    '<textarea name="new'+thisData.table+'" data-focus="true"></textarea>'+
-                                    '<span class="input-callTo">'+
+                                    var  myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look EX-UI">'+
+                                    '<h1 class="legendInside EX-UI">Ajout d\'un répertoire</h1>'+                                
+                                    '<div class="sub-callTo flexColumn-noWrap EX-UI">'+
+                                    '<span class="text-classic EX-UI">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
+                                    '<textarea name="new'+thisData.table+'" data-focus="true" class="EX-UI"></textarea>'+
+                                    '<span class="input-callTo EX-UI">'+
                                     '<input type="submit" data-action="'+thisData.switch+'"'+
-                                    'data-table="'+thisData.table+'" value="valider">'+
-                                    '<input type="submit" data-action="cancel" value="annuler">'+
+                                    'data-table="'+thisData.table+'" value="valider" class="EX-UI">'+
+                                    '<input type="submit" data-action="cancel" value="annuler" class="EX-UI">'+
                                     '</span>'+
                                     '</div>'+
                                     '</fieldset>';
@@ -339,14 +339,14 @@ $(document).ready(function() {
                             
                                     case 'sheet':
                                        
-                                    var  myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look">'+
-                                    '<h1 class="legendInside">Ajout d\'une feuille de style</h1>'+                                
-                                    '<div class="sub-callTo flexColumn-noWrap">'+
-                                    '<span class="text-classic">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
-                                    '<input type="text" name="sheet" placeholder="new Css" data-focus="true"/>'+
-                                    '<span class="input-callTo">'+
-                                    '<input type="button" value="Ok" data-action="create" data-table="sheet"/>'+
-                                    '<input type="button" value="annuler" data-action="cancel"/>'+
+                                    var  myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look EX-UI">'+
+                                    '<h1 class="legendInside EX-UI">Ajout d\'une feuille de style</h1>'+                                
+                                    '<div class="sub-callTo flexColumn-noWrap EX-UI">'+
+                                    '<span class="text-classic EX-UI">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
+                                    '<input type="text" name="sheet" placeholder="new Css" data-focus="true" class="EX-UI"/>'+
+                                    '<span class="input-callTo EX-UI">'+
+                                    '<input type="button" value="Ok" data-action="create" data-table="sheet" class="EX-UI"/>'+
+                                    '<input type="button" value="annuler" data-action="cancel" class="EX-UI"/>'+
                                     '</span>'+
                                     '</div>'+
                                     '</fieldset>'; 
@@ -371,19 +371,19 @@ $(document).ready(function() {
                                     
                                         console.log(thisData);
                                     
-                                    var myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look">'+
-                                    '<h1 class="legendInside">Edition</h1>'+
-                                     '<div class="sub-callTo flexColumn-noWrap">'+
-                                    '<span class="text-classic">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
+                                    var myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look EX-UI">'+
+                                    '<h1 class="legendInside EX-UI">Edition</h1>'+
+                                     '<div class="sub-callTo flexColumn-noWrap EX-UI">'+
+                                    '<span class="text-classic EX-UI">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
                                     
-                                    '<textarea id="editGroup" name="edit'+thisData.table+'">'+thisData.old+'</textarea>'+
-                                    '<span class="input-callTo">'+
+                                    '<textarea id="editGroup" name="edit'+thisData.table+'" class="EX-UI">'+thisData.old+'</textarea>'+
+                                    '<span class="input-callTo EX-UI">'+
                                     '<input type="submit" data-action="'+thisData.switch+'"'+
                                     ' data-table="'+thisData.table+'" data-id'+thisData.table+'="'+thisData.idedit+'"'+ 
                                     'data-idlinkgroup="'+thisData.idlink+'" data-old="'+thisData.old+'" '+
                                     'data-groupformat="'+thisData.groupformat+'"'+
-                                    ' value="valider">'+
-                                    '<input type="submit" data-action="cancel" value="annuler">'+
+                                    ' value="valider" class="EX-UI">'+
+                                    '<input type="submit" data-action="cancel" value="annuler" class="EX-UI">'+
                                      '</span>'+
                                     '</div>'+
                                     '</fieldset>'; 
@@ -403,17 +403,17 @@ $(document).ready(function() {
                                   
                                 case 'project':
                
-                                    var myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look">'+
-                                    '<h1 class="legendInside">Duplication de votre projet</h1>'+
-                                     '<div class="sub-callTo flexColumn-noWrap">'+
-                                    '<span class="text-classic">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
+                                    var myHtml = '<fieldset id="css3ui-callTo" class="css3ui-look EX-UI">'+
+                                    '<h1 class="legendInside EX-UI">Duplication de votre projet</h1>'+
+                                     '<div class="sub-callTo flexColumn-noWrap EX-UI">'+
+                                    '<span class="text-classic EX-UI">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
                                     
-                                    '<textarea name="new'+thisData.table+'">'+thisData.old+'</textarea>'+
-                                    '<span class="input-callTo">'+
+                                    '<textarea name="new'+thisData.table+'" class="EX-UI">'+thisData.old+'</textarea>'+
+                                    '<span class="input-callTo EX-UI">'+
                                     '<input type="submit" data-action="'+thisData.switch+'"'+
                                     ' data-table="'+thisData.table+'" data-id'+thisData.table+'="'+thisData.id+'"'+ 
-                                    ' value="valider">'+
-                                    '<input type="submit" data-action="cancel" value="annuler">'+
+                                    ' value="valider" class="EX-UI">'+
+                                    '<input type="submit" data-action="cancel" value="annuler" class="EX-UI">'+
                                     '</span>'+
                                     '</div>'+
                                     '</fieldset>'; 
@@ -648,7 +648,7 @@ $('.ui-shazam').each(function(){
         console.log('aucun cookie de load');
 
     }
-
+$('.css3ui,.css3ui *').addClass('EX-UI');
 
 });
 

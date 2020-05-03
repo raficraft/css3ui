@@ -436,7 +436,7 @@ $.fn.flash = function(type,message){
             var el,myHtml,lgtFlash;    
             el = $('[data-3ui="message-flash"]');lgtFlash= el.length;if(lgtFlash>0){} 
 
-            myHtml = '<div class="FCW-center-center flash flash-'+type+'" data-3ui="message-flash"><h4>'+message+'</h4></div>';
+            myHtml = '<div class="FCW-center-center flash flash-'+type+' EX-UI" data-3ui="message-flash"><h4>'+message+'</h4></div>';
             $('body').append(myHtml);             
             
             setTimeout(function () { $('[data-3ui="message-flash"]').remove(); }, 2000); 
@@ -446,7 +446,7 @@ $.fn.flashUI = function(box,type,message){
           
           var myHtml;
           
-          myHtml = '<p class="flashUI flashUI-'+type+' flashUI-'+box+'">'+message+'<p>';
+          myHtml = '<p class="flashUI flashUI-'+type+' flashUI-'+box+' EX-UI">'+message+'<p>';
           switch(box){
               
                 case 'action': 
@@ -519,7 +519,7 @@ $.fn.myLightBox = function(thisHtml){
             
             var scrollH = $('body').scrollTop();
             
-            myHtml = '<div class="css3ui-lightBox css3ui" id="css3ui-lightBox"></div>';
+            myHtml = '<div class="css3ui-lightBox css3ui EX-UI" id="css3ui-lightBox"></div>';
             
             
             mTotal = scrollH+sH;
@@ -916,7 +916,7 @@ $.fn.alertMultiRule = function(rule){
            //
        
         $('#css3ui-tabListData A[href="#css3uiWarning"]').parent().remove();       
-        var myHtml = '<li><a href="#css3uiWarning" class="css3uiWarning">! Warning !</a></li>';
+        var myHtml = '<li><a href="#css3uiWarning" class="css3uiWarning EX-UI">! Warning !</a></li>';
            $('#css3ui-tabListData').append(myHtml);        
     };
     
@@ -1068,9 +1068,17 @@ $.fn.splitRuleHtml = function(thisRule){
         var newTab= [];        
         
         $.each(thisTab,function(k,val){
+            
+            
+            if (val.match(/::after/) || val.match(/::before/)) {
+                newTab[k] = val ;
+            } else {
+                newTab[k] = val+':not(.EX-UI)';  
+            }
+            
       
             
-           newTab[k] = val+':not(.EX-UI)';  
+         
         
         });
         
@@ -1301,7 +1309,7 @@ $.fn.optionBackground = function(choice){
             delThis.remove();
             $('#'+thisDel).remove();  
             
-            var myHtml = '<li class="hidden model-li ui-sortable-handle"><a href="multiBack_a" data-rightclick="true" data-table="multiBack">multi-background_a</a>';
+            var myHtml = '<li class="hidden model-li ui-sortable-handle EX-UI"><a href="multiBack_a" data-rightclick="true" data-table="multiBack" class="EX-UI">multi-background_a</a>';
             
             $('.nav-tab-background').append(myHtml);
             

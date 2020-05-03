@@ -978,7 +978,7 @@ $(document).on('contextmenu', '.css3ui *[data-rightClick]:not(input)', function(
                 var lgtTab = toolsTab.length;
                 
                     for(i=0;i<lgtTab;i++){
-                    myHtml += '<li class="css3ui-icon-tools flexRow-noWrap"><a href="#'+toolsTab[i].action+'"';
+                    myHtml += '<li class="css3ui-icon-tools flexRow-noWrap EX-UI"><a class="EX-UI" href="#'+toolsTab[i].action+'"';
                     
                     $.each(toolsTab[i], function(k,v) {  myHtml += 'data-'+k+'="'+v+'" '; });
                     
