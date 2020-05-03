@@ -1,7 +1,9 @@
 $(document).ready(function() {
     
     
-    $.fn.displayDomEl = function (el) {      
+    $.fn.displayDomEl = function (el) {    
+        
+        console.error('leaveleaveleaveleaveleaveleaveleaveleave');
         
      if ($(el).css) {
 

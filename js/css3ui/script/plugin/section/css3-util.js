@@ -1062,40 +1062,16 @@ $.fn.splitRuleHtml = function(thisRule){
         console.log('spliRuleHtml');
         var thisTab = [];    
         thisRule = thisRule.replace(/[, ][ ,][ , ]/g,",");
-      
-       
         
         thisTab = thisRule.split(',');
           
-        var newTab= [];
-        
-          var pattern = new RegExp(""+O.buffer+"",'i'); 
-        
-       
-        
+        var newTab= [];        
         
         $.each(thisTab,function(k,val){
+      
+            
+           newTab[k] = val+':not(.EX-UI)';  
         
-            
-        if(val.match(/html/) || val.match(/body/)){
-           newTab[k] = val+':not(.css3ui):not(.toolsIcon)';
-        }else{
-        if(val.match(pattern)){
-            
-                    console.log('he ho buffer');
-                    console.log('he ho buffer');
-                    console.log('he ho buffer');
-                    console.log('he ho buffer');
-                    console.log('he ho buffer');
-                    console.log(val);
-           newTab[k] = val+':not(.css3ui):not(.toolsIcon)';
-                    
-        }else{    
-            
-           newTab[k] = O.buffer+' '+val+':not(.css3ui):not(.toolsIcon)';  
-        } 
-        }
-            
         });
         
         newRule = newTab.join(',');    

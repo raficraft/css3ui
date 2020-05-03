@@ -867,7 +867,7 @@ $(document).on('contextmenu', '.css3ui *[data-rightClick]:not(input)', function(
 
 ////////////////////////////////////////////////////////////////////////////////
 
- myHtml += '<ul class="toolsIcon item flexColumn-noWrap">'; 
+ myHtml += '<ul class="toolsIcon item flexColumn-noWrap EX-UI">'; 
 
     switch(bdd){
         case 'project':

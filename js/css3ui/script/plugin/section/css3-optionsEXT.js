@@ -21,6 +21,8 @@ $(document).ready(function() {
   
 //nouveau tableau de données
 
+$('.css3ui,.css3ui *').addClass('EX-UI');
+
 
  console.log('constante');
 

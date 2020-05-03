@@ -175,11 +175,11 @@ $(document).ready(function () {
         } else {
 
     
+ $('.displayDom').each(function () { $(this).remove(); });
 
-
-            $(O.buffer + " *").not('.css3ui , .css3ui *').unbind('click');
-            $(O.buffer + ' *').not('.css3ui , .css3ui *').unbind('mouseleave');
-            $(O.buffer + ' *').not('.css3ui , .css3ui *').unbind('mouseover');
+            $("BODY, BODY *").not(".css3ui ,.css3ui *").unbind('click');
+           $("BODY, BODY *").not(".css3ui ,.css3ui *").unbind('mouseleave');
+            $("BODY, BODY *").not(".css3ui ,.css3ui *").unbind('mouseover');
         }
 
     };
