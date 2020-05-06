@@ -296,7 +296,7 @@
                                echo $form_admin->input_flex(array(
                                'html'    => array( 'class'=>'flexRow-wrap bloc-color'),
                                'input'   => array( 'type'=>'color','name'=>'color','class'=>'brick-input'),        
-                               'jquery'  => array( 'duplicate'=>"false", 'format'=>'color',"uiJQ"=>"preview", 'animate'=>'no','default'=>'inherit')
+                               'jquery'  => array( 'duplicate'=>"false", 'format'=>'color',"uiJQ"=>"preview", 'animate'=>'no','default'=>'inherit', 'rightclick'=> 'true')
                                ));
                                ?>
                                </div>
@@ -980,6 +980,7 @@
                                 
                              <div class="css3ui-col title-del">
                                     <div class="css3ui-hr"></div>
+                                    <a href="addTransparentColor" data-jq="addRules" class="link-delRules">Declare transparent color</a>
                                     <a href="background-color" data-jq="delRules" class="link-delRules">Delete color</a>
                                </div>    
                       

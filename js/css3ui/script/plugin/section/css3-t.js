@@ -19,7 +19,7 @@ $.fn.oneDigit = function(dataBrut){
              if(dataPrev.unity){var unity = dataPrev.unity;}else{var unity = 'px';}
              digit[0] = dataBrut+unity;
              construct = dataBrut+unity;/*données Ajax*/                                        
-         }else if(dataBrut.match(/cover|auto|inherit|dashed|dotted|double|groove|hidden|inset|none|outset|solid|ridge|top|bottom|left|right|center|content/)/*Value Css authoriser*/){   
+         }else if(dataBrut.match(/cover|auto|inherit|dashed|dotted|double|groove|hidden|inset|none|outset|solid|ridge|top|bottom|left|right|center|content|transparent/)/*Value Css authoriser*/){   
              digit[0] = dataBrut;
              construct = digit[0];/*données Ajax*/
          }else{

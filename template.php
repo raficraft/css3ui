@@ -11,85 +11,31 @@
 <link href="/css3ui/js/css3ui/core/css/css3ui.css" rel="stylesheet" type="text/css" />
 
 
+
+
 </head> 
 <body class="droppable">
     
-<section id="tampon">
-<section id="global" class="global">
+    <section id="tartuffe" class="test">
+    <section id="megalol" class="bannane">
+    
+    <h1>ELEMENT H1 EN PREMIER</h1>
+    <h1>ELEMENT H1 EN PREMIER</h1>
+    <img  id="image" class="hohohohoho" src="https://picsum.photos/200/300"/>
+    </section>
         
-    <section id="front" class="front">
-         <h1 id="salut" class="hello">Google</h1>
-         <div class="bloc-shearch">
-             <span><input class="css3ui-search" type="text" placeholder="🔎 Search"></span>
-             <span class="input-button">
-                 <input class="button button-search" type="button" value="Recherche google">
-                 <input class="button button-chance" type="button" value="J'ai de la chance">
-             </span>
-             
-             <p class="EX-text">
-                 Sed ut perspiciatis unde omnis iste natus errorunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-                 
-             </p>
-           
+        <p>loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs</p>
+        <p class="ex">loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs</p>
+        <p>loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs</p>
+        <p>loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs</p>
+        <p>loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs loraljfkeslkfkdhjkhdjhgjhjhkjs  loraljfkeslkfkdhjkhdjhgjhjhkjs</p>
         
-         </div>
-         
-                 <ul class="test-UI gradientGreen"><li>
-                         <a href="#">Feuille de style</a>
-             </li>
-                 </ul>
-         
-         
-                 <ul class="test-UI gradientRed">
-                     <li>
-                         <a href="#">Feuille de style</a>
-                    </li>
-                     <li>
-                         <a href="#">Feuille de style</a>
-                    </li>
-                     <li>
-                         <a href="#">Feuille de style</a>
-                    </li>
-                     <li>
-                         <a href="#">Feuille de style</a>
-                    </li>
-                     <li>
-                         <a href="#">Feuille de style</a>
-                    </li>
-                 </ul>
-         
-                 <ul class="test-UI gradientBlue"><li>
-                         <a href="#">Feuille de style4</a>
-             </li>
-                 </ul>
-         
-         <img src="https://picsum.photos/1640/600"/>
-         
-         <div class="divVide">
-             <a href="http://www.google.fr">Vers google</a>
-         </div>
-         
-         <p>Lorem cecicel</p>
-         <p>Lorem cecicel</p>
-         <p>Lorem cecicel</p>
-         <p>Lorem cecicel</p>
-         <p>Lorem cecicel</p>
-         <p>Lorem cecicel</p>
-         <p>Lorem cecicel</p>
-         <p>Lorem cecicel</p>
-         <p>Lorem cecicel</p>
     </section>
 
-   
-    
-</section>
-
-</section>
-    
     
         <?php   include_once('js/css3ui/css3ui.php');   ?>
     
- <script
+     <script
 			  src="https://code.jquery.com/jquery-3.5.0.min.js"
 			  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
 			  crossorigin="anonymous"></script>
@@ -117,5 +63,7 @@
 
 
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-load.js"></script>
+    
+
 </body>
 </html>

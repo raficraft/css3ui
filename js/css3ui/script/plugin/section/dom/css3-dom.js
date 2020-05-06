@@ -1,327 +1,165 @@
 $(document).ready(function () {
-    /*********************DOM**********************************************/
-    /************************************************/
+
+
 
 
     $.fn.viewDom = function () {
-        console.log('viewDom')
-
-        $('body').toggleClass('activeSyd')
-
+        console.log('viewDom');
+        dataJQ = D.param.plugName
+        $('body').toggleClass('activeSyd');
         if ($('body').hasClass('activeSyd')) {
 
-
-            dataJQ = D.param.plugName
-
-            ///Variable pour le click
-            incTag = 0
-            // Variable des différents renvoies des elements HTML
-            //cible -> tag de l'element (DIV , UL , A , INPUT , FORM ect...)
-            //buildPath les ID , les class et les attributs.
-            //buildId , renvoie l'id du TAG
-            //buildClass , renvoie la class du TAG
-            //buildData est un tableau contenant les attributs DATA du TAG
-            let cible, buildTag = '', buildID = '', buildClass = '', buildData = [], exClass = []
-            tabClass = []
-            //thisID Stock l'id du TAG
-            //thisClass stock la class du TAG
-            let thisID = '', thisClass = ''
-            //dataArray est un tableau contenue les attribue data- et la valeur de cette attribue 
-            let dataArray = new Array
-            //buildAll est la compilation de cible+buildTag+buildClass+buildData
-            buildAll = []
+          
+            myHtml = [];
+            pathDom = [];
+            inc = 0;
+            
+            browseDomClick = [];
+            incClick = 0;
+          
 
 
-            let cibleOver, pathOver;
+            $(document).on("mouseover", "BODY,BODY *:not(.csss3ui,css3ui *,.EX-UI)", function (event) {
 
-            let buildOver = [];
-            let tabClassOver = {};
+               
 
-            let incOver = 0;
-
-
-
-
-
-
-
-            $("BODY, BODY *").not(".css3ui ,.css3ui *").on("click", function (e) {
-
-            //Cette verification de la longueur du tableau
-            //Permet desactiver certains input de l'interface (input[type=""], checkbox, bouton radio)
-            //Car ils sont eux même compris dans le body.
-            if(buildAll.length>0){
                 event.preventDefault();
-            }
-                cible = $(this).tagName();
-                console.log(cible);
+                let cible = $(this).tagName();
+            //    console.log('mouseover : '+cible);
 
-                // Construit la totalité des attributs d'un TAG ex body#tag.class
+                if (cible !== 'BODY') {
+                    myHtml[inc] = '<p id=""selec' + inc + '" class="blocRule"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '">' + cible + '</a>';
+                    pathDom[inc] = cible;
 
-                switch (cible) {
-
-                    default:
-                        //Construit la balise HTML pour le TAG de la cible
-                        if (cible !== 'BODY') {
-                            buildTag = '<a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '">' + cible + '</a>';
-
-                            //Construit la balise HTML pour l'ID de la cible
-                            if ($(this).attr("id")) {
-
-                                thisID = '#' + $(this).attr('id');
-
-                                buildID = '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '">' + thisID + '</a>';
-
-                            } else { buildID = ''; thisID = ''; }
-
-                            //Construit la balise HTML pour la class de la cible
-                            if ($(this).attr('class')) {
-
-                                thisClass = $(this).attr('class');
-                                //Enlève les caratères blanc
-                                tabClass = thisClass.split(/\s/);
-
-                                $.each(tabClass, function (key, val) {
-
-                                    if(val !== 'CMA-displayDom'){
-                                    thisClass = '.' + val;
-                                    exClass[key] = '<a href="' + thisClass + '"  class="selCss" data-type="class" data-action="createRule">' + thisClass + '</a>';
-                                    }
-
-                                });
-
-                                buildClass = exClass.join('');
-                                exClass = [];
-                                tabClass = [];
-
-                            } else { buildClass = ''; }
-
-                            //console.log(buildTag + buildID + buildClass + buildData);
-                            //  console.log('Numero : ' + incTag)
-                            buildAll[incTag] = '<p id=""selec' + incTag + '" class="blocRule">' + buildTag + buildID + buildClass + '</p>';
-                            incTag++;
-                            //   console.log(buildAll)
-
-
-                            $('#selAdd > p').remove();
-
-                        } else if (cible === 'BODY') {
-
-                            //On crée manuellement la valeur HTML ET BODY
-                            //  console.log('Numero : ' + incTag)
-
-                            // console.log(buildAll);
-
-                            buildAll.reverse();
-                            //  console.log(buildAll);
-                            console.error(buildAll);
-                            console.error(buildAll.length);
-                            //AJouter le limitateur d'affichage au cas ou l'element pointé ce trouve dans énormement de parent.
-                            $('#selAdd').append(buildAll);
-                            buildAll = [];
-                            incTag = 0;
-
-                        }
-                        break;
-
-                }
-
-            }).mouseover(function (event) {
-                event.preventDefault();
-           
-            $('.CMA-displayDom').removeClass('CMA-displayDom');  
-                // On retire tous les elements qui affiche les marges/bordures/marges intérieur
-                $('.displayDom').each(function () { $(this).remove(); });
-
-
-                cibleOver = $(this).tagName();
-                if (cibleOver !== 'BODY') {
-                    buildOver[incOver] = $(this).tagName();
                     if ($(this).attr('id')) {
-                        buildOver[incOver] += "#" + $(this).attr('id');
+                        let thisID = '#' + $(this).attr('id');
+                        myHtml[inc] += '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '">' + thisID + '</a>';                      
+                        pathDom[inc] += thisID;
+
                     }
+
                     if ($(this).attr('class')) {
-                        
-                        tabClassOver = $(this).attr('class').split(/\s/);;
 
-                        $.each(tabClassOver, (key, val) => {
-                             if(val !== 'CMA-displayDom'){
-                            buildOver[incOver] += "." + val;
-                             }
-                        })
-                        
+                        let thisClass = $(this).attr('class');                       
+                        //Enlève les caractères blanc 
+                        let tabClass = thisClass.split(/\s/);
+                        let exClass = [];
+                        let pathClass = [];
+                        $.each(tabClass, function (key, val) {                        
+                            if (val !== 'CMA-displayDom' || val !== 'activeSyd' || val !== 'ui-droppable' || val !== 'droppable') {
+                                thisClass = '.' + val;
+                                exClass[key] = '<a href="' + thisClass + '"  class="selCss" data-type="class" data-action="createRule">' + thisClass + '</a>';
+                                pathClass[key] = '.' + val;
+                            }
+                        });
+
+                        myHtml[inc] += exClass.join('');
+                        pathDom[inc] += pathClass.join('');
+
+                        thisClass = '';
+                        tabClass = [];
+                        exClass = [];
+                        pathClass = [];
                     }
 
-                    incOver++;
+                    myHtml[inc] += '</p>';
+                
+               
+                    inc++;
+                    validFunc = true;
                 }
+                
+                
+                
+                if (cible === 'BODY' && myHtml.length > 0) {
+                   
+                        myHtml.reverse();
+                        pathDom.reverse();
+                        let domSelector = myHtml.join('');
+                        let domPath = pathDom.join(' ');
 
-                if (cibleOver === 'BODY') {
-                    pathOver = buildOver.reverse().join(' ');
-                  
-                    $(this).displayDomEl($(pathOver));
-                    
-                    //En fin de chaine on reinitialise les variables et les tableau
-                    cibleOver =''
-                    pathOver=''
-                       incOver = 0;
-                       
-                    buildOver = []
-                    tabClassOver = {};
+                        localStorage.setItem('domSelector',domSelector);
+                        localStorage.setItem('domPath',domPath);
+                     
+                        ////////////////////////
+
+                      
+                        //console.table(localStorage);
+                        //Doit ce faire au clic dans l'element créer par displayDomEl
+                         $('.displayDom').each(function () { $(this).remove(); });
+                        //On passe à dysplaydomEl
+                        $(domPath).each(function(key){
+                            
+                            localStorage.setItem('domPathKey' , key);
+                        //    console.error('numero de notre item -->>>' + key);
+                            $(this).displayDomEl($(this));
+                        });
+
+                        thisId = '';
+                        myHtml = [];
+                        pathDom = [];
+                        inc = 0;
+
+                        domSelector = '';
+                        domPath = '';
                  
+                }else if(cible === "BODY" && myHtml.length  === 0){
+                    
+                    localStorage.removeItem('domSelector');
+                    localStorage.removeItem('domPath');
+                    
                 }
-            })
+               
 
+            }).on("click", "BODY,BODY *:not(.csss3ui,css3ui *,.EX-UI)", function (event) {
+                
+             
+                let cible = $(this).tagName(); 
+                if(cible !== 'BODY'){
+               
+                console.error("mouseOut -> "+cible);
+                browseDomClick[incClick] = cible;
+                console.error(browseDomClick.length);
+                }
+                if(cible === "BODY" && browseDomClick.length > 0){
+                 
+                $('#selAdd > p').remove(); 
+                 
+                if($(this).tagName() === "BODY"){
+                 $('#selAdd').append(localStorage.getItem('domSelector'));
+                }
+                
+                browseDomClick = [];
+                incClick = 0;
+                }else if(cible === "BODY" && browseDomClick.length  === 0){
+                    console.error('//On supprime le localStorage');  
+                    localStorage.removeItem('domSelector');
+                    localStorage.removeItem('domPath');
+                    
+                }
+                
+                
+            });
 
-        } else {
-
-    
- $('.displayDom').each(function () { $(this).remove(); });
-
-            $("BODY, BODY *").not(".css3ui ,.css3ui *").unbind('click');
-           $("BODY, BODY *").not(".css3ui ,.css3ui *").unbind('mouseleave');
-            $("BODY, BODY *").not(".css3ui ,.css3ui *").unbind('mouseover');
         }
+        
 
     };
-
+    
+   
 
 
     $(document).on('mouseover', '.itemData-ruleHtml:not(.itemData-comment)', function () {
 
-        $('html, html *').removeClass('views');
+
         var ui = $(this).children('A').data('groupname');
         var thisRule = $(this).splitRuleHtml(ui);
         console.log('/****/');
         console.log(thisRule);
-        $(thisRule).addClass('views');
-        console.log($(this));
+        $(this).displayDomEl(thisRule);
 
-    }).on('mouseleave', '.itemData-ruleHtml', function () {
-
-        $('html, html *').removeClass('views');
 
     });
-    /*
-    
-    $(document).on('mouseover','.itemData-comment:not(.itemData-ruleHtml)',function(){
-    
-            console.log('on survol');
-              console.log('Global');
-    
-    
-          var askGlob = function(method,el){
-    
-                switch (method){
-                    
-                    
-                    case 'findAllRuleHtml':
-                        
-                        
-                        console.log('Commande ASk : >>>> findAllRuleHtml');
-                        
-                   
-                        $('html, html *').removeClass('views');
-          
-                  
-                      
-                        
-                        $.each(maGlob.style,function(k,style){
-                            
-                            
-                            if(style.idSheet === $.cookie('idSheet')){
-                                
-                               
-                            if(style.group){
-                                
-                              
-                                var loopGroup = function(group,type){
-    
-                                    $('html, html *').removeClass('views');
-                                            console.log('looGroup');
-                                            console.log(group);
-                                    $.each(group,function(x,groupe){
-    
-                                    if(groupe.myParent > 0){  
-                                         if(groupe.format === 'ruleHtml'){
-    
-                                           console.log('onStock dans la global');
-                                                    console.log(group);
-                                                 
-                                                var rule = groupe.groupName;
-                                                var buffer = O.buffer;
-                                                
-                                                //passer Dans le split Rule
-                                            if(rule === 'html'||
-                                                    rule === 'body'||
-                                                    rule === 'html,body '){
-                                                
-                                                buffer = '';
-                                                    }        
-                                                    console.log(rule);  
-                                           $(buffer+' '+rule).addClass('views');
-                                           
-                                           console.log(groupe.groupName);
-                                       }
-                                    } 
-                                            console.log(el.data('groupname'));
-                                       if(type==='first'){
-                                    if(groupe.groupName === el.data('groupname')) {
-                                        console.log('oui oui oui');
-                                        console.log('oui oui oui');
-                                        console.log('oui oui oui');
-                                        console.log('oui oui oui');
-    
-                                       if(groupe.child === true){
-                                            console.log('on Boucle');
-                                            loopGroup(groupe.group,'child');
-                                           
-                                       } 
-                                    }    
-                                    }else if(type==='child'){
-                                        
-                                         if(groupe.child === true){
-                                            console.log('on Boucle');
-                                            loopGroup(groupe.group,'child');
-                                           
-                                       } 
-                                        
-                                    }
-                                    
-    
-    
-    });
-                                };
-                            
-                            loopGroup(style.group,'first');
-                            
-                           
-                            } 
-                            }
-                            
-                            
-                            
-                        });
-                        
-                       
-                        
-                        
-                    break;
-                    
-                }
-                
-            };
-            console.log($(this).data());
-            askGlob('findAllRuleHtml',$(this));
-            
-            
-    }).on('mouseleave','.itemData-comment,.itemData-media',function(){
-        
-        $('html, html *').removeClass('views');
-        
-    });
-    
-    */
-
 
     $(document).on('mouseover', '.itemData-comment:not(.itemData-ruleHtml)[data-level="1"] > A', function () {
 

@@ -52,6 +52,30 @@ $('.ui-shazam').click(function(){
     
 });
 
+ $('[data-jq="addRules"]').click(function (e) { 
+   
+        e.preventDefault();
+        
+        var thisAdd = $(this).attr('href');
+        console.log(thisAdd);
+        console.log('ajout de la tansparence');
+         switch (thisAdd) {
+             
+            case ('addTransparentColor'): 
+                
+                console.log('ajour de la tansparence');
+                
+                dataPrev.ruleHtml = $.cookie('ruleHtml');
+                dataPrev.name = 'background-color';
+                dataPrev.format = 'alpha';
+                dataPrev.preview = 'transparent';
+                dataPrev.ajax = 'transparent';
+                $(this).ajaxPrev();                
+                
+            break;             
+         }        
+    });
+
 $(".droppable").droppable({    
         drop:function(event,ui){ 
             if(ui.draggable.hasClass('moveJS')){     
@@ -1088,7 +1112,7 @@ $(document).on('click','.css3ui *[data-css3ui]', function(e,close){
 
 var thisData = $(this).constructDataListSheet($(this));
                 
-                
+               
  
     switch(thisData.thisAction){
         case 'openGroup':
@@ -1172,10 +1196,11 @@ var thisData = $(this).constructDataListSheet($(this));
                 } if(thisData.groupformat==='comment'){
                       $(this).flashUI('rule','alert','Your Select a directory'); 
                       $('#newRule').empty();
+                     
                       $(this).vidangeUI();
                 }else if(thisData.groupformat==='media'){
                       $(this).flashUI('rule','alert','Your Select a MediaQueries'); 
-                      $('#newRule').empty();
+                      $('#newRule').empty();                      
                       $(this).vidangeUI();
                 }
             break;                 

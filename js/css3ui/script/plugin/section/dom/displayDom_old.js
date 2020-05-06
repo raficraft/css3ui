@@ -2,12 +2,10 @@ $(document).ready(function() {
     
     
     $.fn.displayDomEl = function (el) {    
-         console.error('On visualise le tag pointé avec la souris');
-         //el = localStorage.getItem('domPath');
         
      if ($(el).css) {
 
-            var elMargin = {}, elPadding = {}, elBorder = {}, elPos = {};
+       var elMargin = {}, elPadding = {}, elBorder = {}, elPos = {};
 
             var elW, elH;
             
@@ -76,8 +74,7 @@ $(document).ready(function() {
 
             };
             var border = {
-                
-                type : 'border',
+
                 top: {
                     W: elBorder.left + elPadding.left + elW + elPadding.right + elBorder.right,
                     H: elBorder.top,
@@ -111,7 +108,7 @@ $(document).ready(function() {
 
             };
             var margin = {
-                type : 'margin',
+
                 top: {
                     W: elMargin.left + elBorder.left + elPadding.left + elW + elPadding.right + elBorder.right + elMargin.right,
                     H: elMargin.top,
@@ -141,80 +138,84 @@ $(document).ready(function() {
                     posX: elPos.left + elMargin.left + elBorder.left + elPadding.left + elW + elPadding.right + elBorder.right,
                     color: ' rgba(255,0,0,0.4)'
                 }
+
+
             };
-            
-        
-            let element = {
-                type : 'element',
-                W : elW,
-                H : elH,
-                posY : elPos.top + elMargin.top + elPadding.top + elBorder.top,
-                posX : elPos.left + elMargin.left + elPadding.left + elBorder.left,
-                color : ' rgba(60,180,255,0.4)'
-            };    
-            
-            
-            let container = {
-                type : 'container',
-                W : elMargin.left + elPadding.left + elMargin.left + elW + elMargin.right + elPadding.right + elMargin.right ,
-                H : elMargin.top + elPadding.top + elMargin.top + elH + elMargin.bottom + elPadding.bottom + elMargin.bottom ,
-                posY : elPos.top,
-                posX : elPos.left
-            }
+     
+              $(el).addClass('CMA-displayDom');
 
             ///Dysgap///
             //Affiche des marge dans son lot de span //
 
-               //      $(el).addClass('CMA-displayDom');
-               
-           
-               
-            localStorage.getItem('domPathKey') ? DPK = localStorage.getItem('domPathKey') : DPK = 0;
-              
+
             function drawGap(data) {
-                
-              
-                
-                if(data.type === 'container'){
-                    
-                   let  viewGap = '<span class="displayDom displayContainer_'+DPK+' EX-UI" style="background:rgba(0.0.0.0.4) position:absolute; min-width:'+ data.W + 'px; min-height:' + data.H + 'px; left:' + data.posX + 'px; top:' + data.posY + 'px; content : " "; " ></span>';
-                        $('body').append(viewGap);
-                        viewGap = '';                      
-                }
-                else if(data.type === 'element'){
-                    
-                   let  viewGap = '<span class="displayDom displayEl EX-UI" style=" background:' + data.color + '; position:absolute; min-width:'+ data.W + 'px; min-height:' + data.H + 'px; left:' + data.posX + 'px; top:' + data.posY + 'px; content : " "; " ></span>';
-                        $('body').append(viewGap);
-                        viewGap = '';
-                    
-                    
-                }else{                
+
                 $.each(data, function (x, gap) {
                     var viewGap;
                     if (gap.W > 0 && gap.H > 0) {
-                        viewGap = '<span class="displayDom EX-UI" style=" background:' + gap.color + '; position:absolute; min-width:'+ gap.W + 'px; min-height:' + gap.H + 'px; left:' + gap.posX + 'px; top:' + gap.posY + 'px; content : " "; " ></span>';
+                        viewGap = '<span class="displayDom" style="z-index=944540; background:' + gap.color + '; position:absolute;\
+                               min-width:'+ gap.W + 'px; min-height:' + gap.H + 'px; left:' + gap.posX + 'px; top:' + gap.posY + 'px; content : " "; " ></span>';
                         $('body').append(viewGap);
                         viewGap = '';
                     }
                 });
-            }
 
             };
-            drawGap(container);
-           drawGap(element);
-            drawGap(margin);
-            drawGap(border);
+
             drawGap(padding);
-          
+            drawGap(border);
+            drawGap(margin);
         }
 
     };
-    
-    
-  
 
-  
+  $.fn.wrapImg = function (el, action) {
+
+
+
+    tag = $(el)
+    let valImg = {}
+
+    valImg = {
+
+        path: el,
+        H: tag.css('height'),
+        W: tag.css('width'),
+        Zdown: tag.css('z-index') === 'auto' ? 0 : tag.css('z-index'),
+        Zup: 10
+    }
+
+    console.log(valImg.Zdown);
+
+    console.table(valImg)
     
+    $(this).displayDomEl(tag);
+
+    switch (action) {
+
+        case 'wrap':
+            tag.css({ 'z-index': valImg.Zdown, 'display': 'block', 'position': 'relative' })
+            tag.wrap('<div class="wrapperDomImg" data-pathDom="' + el + '"></div>')
+            console.log('On emglobe limage');
+
+            break;
+        case 'unWrap': break;
+
+    }
+
+  };
+  
+  
+  $('.wrapperDomImg').trigger("mouvemove",function(){
+      
+        console.log('leave');
+     
+      
+  })
+  
+  $(document).on('mouseleave', '.wrapperDomImg', function(){
+    alert("Leaving demo");
+    });
     
     
 });

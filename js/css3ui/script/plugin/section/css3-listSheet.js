@@ -255,7 +255,7 @@ $('#styleDb,#css3ui-listData').empty();
                             <span class="input EX-UI"><input class="EX-UI" id="css3ui-search" type="text" placeholder="&#128270 Search"></span>\n\
                         </span>\n\
                         <span class="bottom-icon EX-UI">\n\
-                        <a href="#callTo" data-action="callTo" data-text="add-group" data-switch="create" data-table="group class="EX-UI"">\n\
+                        <a href="#callTo" data-action="callTo" data-text="add-group" data-switch="create" data-table="group" class="EX-UI">\n\
                         <img src="/css3ui/js/css3ui/img/base/icon_css/css3ui-addFolder.png" alt="css3ui-addFolder" title="css3ui-addFolder" class="img32 EX-UI">\n\
                         </a>\n\
                         </span>\n\

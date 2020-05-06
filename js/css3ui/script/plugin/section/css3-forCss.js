@@ -124,14 +124,20 @@ $(document).ready(function () {
                                     $('input[name="' + myRule + '_y"]').val(axisY); $('input[name="' + myRule + '_x"]').val(axisX);
 
 
-                                } else if (myFormat === "color") {
-
+                                } else if (myFormat === "color" ) {
+                                    
+                                  if(myVal === 'transparent'){
+                                      
+                                    $('input[name="' + myRule + '"]').val('#050000');
+                                    $('input[name="' + myRule + '_opacity"]').val(0);
+                                      
+                                  }else{
                                     var opacity = myVal.split(',');
                                     var Opacity = opacity[3].slice(0, -1);
                                     var myCss = rgb2hex(myVal);
                                     $('input[name="' + myRule + '"]').val(myCss);
                                     $('input[name="' + myRule + '_opacity"]').val(Opacity);
-
+                                  }
 
                                 } else if (myFormat === 'box-shadow') {
 
