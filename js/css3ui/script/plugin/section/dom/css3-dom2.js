@@ -19,7 +19,7 @@ $(document).ready(function () {
           
 
             
-            $(document).on("mouseover", "BODY:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI),BODY *:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI)", function (event) {
+            $(document).on("mouseover",  "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)", function (event) {
 
                 console.log( domSelec);
                 console.log(pathDom);
@@ -29,12 +29,13 @@ $(document).ready(function () {
             //    console.log('mouseover : '+cible);
                 console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! =>'+cible);
                 if (cible !== 'BODY') {
-                    domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '">' + cible + '</a>';
+                    domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule EX-UI"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '">' + cible + '</a>';
                     pathDom[inc] = cible;
 
                     if ($(this).attr('id')) {
-                        let thisID = '#' + $(this).attr('id');
-                        domSelec[inc] += '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '">' + thisID + '</a>';                      
+                        let thisID = '#' + $(this).attr('id').replace(/\s/g, '');
+                        console.log('ID du selecteur : '+thisID);
+                        domSelec[inc] += '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '" class="EX-UI">' + thisID + '</a>';                      
                         pathDom[inc] += thisID;
 
                     }
@@ -49,7 +50,7 @@ $(document).ready(function () {
                         $.each(tabClass, function (key, val) {                        
                             if (val !== 'CMA-displayDom' || val !== 'activeSyd' || val !== 'ui-droppable' || val !== 'droppable') {
                                 thisClass = '.' + val;
-                                exClass[key] = '<a href="' + thisClass + '"  class="selCss" data-type="class" data-action="createRule">' + thisClass + '</a>';
+                                exClass[key] = '<a href="' + thisClass + '"  class="selCss" data-type="class" data-action="createRule" class="EX-UI">' + thisClass + '</a>';
                                 pathClass[key] = '.' + val;
                             }
                         });
@@ -88,7 +89,7 @@ $(document).ready(function () {
                          $('.displayDom').each(function () { $(this).remove(); });
                         //On passe à dysplaydomEl
                       
-                            
+                        console.error(domPath);    
                         //    console.error('numero de notre item -->>>' + key);
                             $(this).displayDomEl(domPath);
                    
@@ -108,7 +109,7 @@ $(document).ready(function () {
                 }
                
 
-            }).on("click", "BODY:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI),BODY *:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI)", function (event) {
+            }).on("click", "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)", function (event) {
                 
              
                 let cible = $(this).tagName(); 
@@ -143,8 +144,8 @@ $(document).ready(function () {
 
             $('.displayDom').each(function () { $(this).remove(); });
 
-                $(document).off("mouseover", "BODY:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI),BODY *:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI)");
-                $(document).off("click", "BODY:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI),BODY *:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI)");
+                $(document).off("mouseover", "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)");
+                $(document).off("click", "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)");
           
         }
 
