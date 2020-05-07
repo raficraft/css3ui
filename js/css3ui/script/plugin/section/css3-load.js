@@ -285,7 +285,7 @@ $(document).ready(function() {
                                 '<span class="text-classic EX-UI">Vous ne pouvez utiliser que des caractères alphanumériques</span>'+
                                 '<input type="text" name="project" placeholder="newProject" data-focus="true class="EX-UI"/>'+
                                 '<span class="input-callTo EX-UI">'+
-                                '<input type="button" name="createProject" value="Ok" data-action="create" data-table="project class="EX-UI"/>'+
+                                '<input type="button" name="createProject" value="Ok" data-action="create" data-table="project" class="EX-UI"/>'+
                                 '<input type="button" value="annuler" data-action="cancel" class="EX-UI"/>'+
                                 '</span>'+
                                 '</div>'+

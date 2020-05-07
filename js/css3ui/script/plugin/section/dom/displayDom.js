@@ -4,39 +4,39 @@ $(document).ready(function() {
     $.fn.displayDomEl = function (el) {    
          console.error('On visualise le tag pointé avec la souris');
          //el = localStorage.getItem('domPath');
-        
-     if ($(el).css) {
+     $(el).each(function(key){ 
+     if ($(this).css) {
 
             var elMargin = {}, elPadding = {}, elBorder = {}, elPos = {};
 
             var elW, elH;
             
             
-            $(el).css('margin-top')     ? elMargin.top = parseFloat($(el).css('margin-top').substring(0, $(el).css('margin-top').length - 2))          : elMargin.top = 0;
-            $(el).css('margin-right')   ? elMargin.right = parseFloat($(el).css('margin-right').substring(0, $(el).css('margin-right').length - 2))    : elMargin.right = 0;
-            $(el).css('margin-bottom')  ? elMargin.bottom = parseFloat($(el).css('margin-bottom').substring(0, $(el).css('margin-bottom').length - 2)) : elMargin.top = 0;
-            $(el).css('margin-left')    ? elMargin.left = parseFloat($(el).css('margin-left').substring(0, $(el).css('margin-left').length - 2))       : elMargin.top = 0;
+            $(this).css('margin-top')     ? elMargin.top = parseFloat($(this).css('margin-top').substring(0, $(this).css('margin-top').length - 2))          : elMargin.top = 0;
+            $(this).css('margin-right')   ? elMargin.right = parseFloat($(this).css('margin-right').substring(0, $(this).css('margin-right').length - 2))    : elMargin.right = 0;
+            $(this).css('margin-bottom')  ? elMargin.bottom = parseFloat($(this).css('margin-bottom').substring(0, $(this).css('margin-bottom').length - 2)) : elMargin.top = 0;
+            $(this).css('margin-left')    ? elMargin.left = parseFloat($(this).css('margin-left').substring(0, $(this).css('margin-left').length - 2))       : elMargin.top = 0;
 
 
-            $(el).css('padding-top')    ?  elPadding.top = parseFloat($(el).css('padding-top').substring(0, $(el).css('padding-top').length - 2))          : elPadding.top = 0;
-            $(el).css('padding-right')  ?  elPadding.right = parseFloat($(el).css('padding-right').substring(0, $(el).css('padding-right').length - 2))    : elPadding.right = 0;
-            $(el).css('padding-bottom') ?  elPadding.bottom = parseFloat($(el).css('padding-bottom').substring(0, $(el).css('padding-bottom').length - 2)) : elPadding.bottom = 0;
-            $(el).css('padding-left')   ?  elPadding.left = parseFloat($(el).css('padding-left').substring(0, $(el).css('padding-left').length - 2))       : elPadding.left = 0;
+            $(this).css('padding-top')    ?  elPadding.top = parseFloat($(this).css('padding-top').substring(0, $(this).css('padding-top').length - 2))          : elPadding.top = 0;
+            $(this).css('padding-right')  ?  elPadding.right = parseFloat($(this).css('padding-right').substring(0, $(this).css('padding-right').length - 2))    : elPadding.right = 0;
+            $(this).css('padding-bottom') ?  elPadding.bottom = parseFloat($(this).css('padding-bottom').substring(0, $(this).css('padding-bottom').length - 2)) : elPadding.bottom = 0;
+            $(this).css('padding-left')   ?  elPadding.left = parseFloat($(this).css('padding-left').substring(0, $(this).css('padding-left').length - 2))       : elPadding.left = 0;
 
             /// Usage de la prop border-???-width car firefox ne trouve pas de border dedié type border-top quand la valeur est simplement attribué à border ex: border : 4px solid black
 
-            $(el).css('border-top-width')     ?  elBorder.top = parseFloat($(el).css('borderTopWidth').substring(0, $(el).css('borderTopWidth').length - 2))          : elBorder.top = 0;
-            $(el).css('border-right-width')   ?  elBorder.right = parseFloat($(el).css('border-right-width').substring(0, $(el).css('border-right-width').length - 2))    : elBorder.right = 0;
-            $(el).css('border-bottom-width')  ?  elBorder.bottom = parseFloat($(el).css('border-bottom-width').substring(0, $(el).css('border-bottom-width').length - 2)) : elBorder.bottom = 0;
-            $(el).css('border-left-width')    ?  elBorder.left = parseFloat($(el).css('border-left-width').substring(0, $(el).css('border-left-width').length - 2))       : elBorder.left = 0 ;
+            $(this).css('border-top-width')     ?  elBorder.top = parseFloat($(this).css('borderTopWidth').substring(0, $(this).css('borderTopWidth').length - 2))          : elBorder.top = 0;
+            $(this).css('border-right-width')   ?  elBorder.right = parseFloat($(this).css('border-right-width').substring(0, $(this).css('border-right-width').length - 2))    : elBorder.right = 0;
+            $(this).css('border-bottom-width')  ?  elBorder.bottom = parseFloat($(this).css('border-bottom-width').substring(0, $(this).css('border-bottom-width').length - 2)) : elBorder.bottom = 0;
+            $(this).css('border-left-width')    ?  elBorder.left = parseFloat($(this).css('border-left-width').substring(0, $(this).css('border-left-width').length - 2))       : elBorder.left = 0 ;
             
             
           
 
-            $(el).position() ? elPos = $(el).position() : elPos = {top : 0 , left : 0};
+            $(this).position() ? elPos = $(this).position() : elPos = {top : 0 , left : 0};
 
-            $(el).css('width') ? elW = parseFloat($(el).css('width').substring(0, $(el).css('width').length - 2))  : elW = 0;
-            $(el).css('height') ? elH = parseFloat($(el).css('height').substring(0, $(el).css('height').length - 2)):elH =0;
+            $(this).css('width') ? elW = parseFloat($(this).css('width').substring(0, $(this).css('width').length - 2))  : elW = 0;
+            $(this).css('height') ? elH = parseFloat($(this).css('height').substring(0, $(this).css('height').length - 2)):elH =0;
 
 
 
@@ -167,9 +167,6 @@ $(document).ready(function() {
 
                //      $(el).addClass('CMA-displayDom');
                
-           
-               
-            localStorage.getItem('domPathKey') ? DPK = localStorage.getItem('domPathKey') : DPK = 0;
               
             function drawGap(data) {
                 
@@ -177,7 +174,7 @@ $(document).ready(function() {
                 
                 if(data.type === 'container'){
                     
-                   let  viewGap = '<span class="displayDom displayContainer_'+DPK+' EX-UI" style="background:rgba(0.0.0.0.4) position:absolute; min-width:'+ data.W + 'px; min-height:' + data.H + 'px; left:' + data.posX + 'px; top:' + data.posY + 'px; content : " "; " ></span>';
+                   let  viewGap = '<span class="displayDom displayContainer_'+key+' EX-UI" style="background:rgba(0.0.0.0.4) position:absolute; min-width:'+ data.W + 'px; min-height:' + data.H + 'px; left:' + data.posX + 'px; top:' + data.posY + 'px; content : " "; " ></span>';
                         $('body').append(viewGap);
                         viewGap = '';                      
                 }
@@ -207,7 +204,7 @@ $(document).ready(function() {
             drawGap(padding);
           
         }
-
+        });
     };
     
     

@@ -10,7 +10,7 @@ $(document).ready(function () {
         if ($('body').hasClass('activeSyd')) {
 
           
-            myHtml = [];
+            domSelec = [];
             pathDom = [];
             inc = 0;
             
@@ -18,22 +18,23 @@ $(document).ready(function () {
             incClick = 0;
           
 
+            
+            $(document).on("mouseover", "BODY:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI),BODY *:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI)", function (event) {
 
-            $(document).on("mouseover", "BODY,BODY *:not(.csss3ui,css3ui *,.EX-UI)", function (event) {
-
-               
+                console.log( domSelec);
+                console.log(pathDom);
 
                 event.preventDefault();
                 let cible = $(this).tagName();
             //    console.log('mouseover : '+cible);
-
+                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! =>'+cible);
                 if (cible !== 'BODY') {
-                    myHtml[inc] = '<p id=""selec' + inc + '" class="blocRule"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '">' + cible + '</a>';
+                    domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '">' + cible + '</a>';
                     pathDom[inc] = cible;
 
                     if ($(this).attr('id')) {
                         let thisID = '#' + $(this).attr('id');
-                        myHtml[inc] += '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '">' + thisID + '</a>';                      
+                        domSelec[inc] += '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '">' + thisID + '</a>';                      
                         pathDom[inc] += thisID;
 
                     }
@@ -42,7 +43,7 @@ $(document).ready(function () {
 
                         let thisClass = $(this).attr('class');                       
                         //Enlève les caractères blanc 
-                        let tabClass = thisClass.split(/\s/);
+                        let tabClass = thisClass.split(/\s/g, '');
                         let exClass = [];
                         let pathClass = [];
                         $.each(tabClass, function (key, val) {                        
@@ -53,7 +54,7 @@ $(document).ready(function () {
                             }
                         });
 
-                        myHtml[inc] += exClass.join('');
+                        domSelec[inc] += exClass.join('');
                         pathDom[inc] += pathClass.join('');
 
                         thisClass = '';
@@ -62,20 +63,18 @@ $(document).ready(function () {
                         pathClass = [];
                     }
 
-                    myHtml[inc] += '</p>';
+                    domSelec[inc] += '</p>';
                 
                
                     inc++;
                     validFunc = true;
                 }
                 
-                
-                
-                if (cible === 'BODY' && myHtml.length > 0) {
+                if (cible === 'BODY' &&  domSelec.length > 0) {
                    
-                        myHtml.reverse();
+                        domSelec.reverse();
                         pathDom.reverse();
-                        let domSelector = myHtml.join('');
+                        let domSelector = domSelec.join('');
                         let domPath = pathDom.join(' ');
 
                         localStorage.setItem('domSelector',domSelector);
@@ -88,30 +87,28 @@ $(document).ready(function () {
                         //Doit ce faire au clic dans l'element créer par displayDomEl
                          $('.displayDom').each(function () { $(this).remove(); });
                         //On passe à dysplaydomEl
-                        $(domPath).each(function(key){
+                      
                             
-                            localStorage.setItem('domPathKey' , key);
                         //    console.error('numero de notre item -->>>' + key);
-                            $(this).displayDomEl($(this));
-                        });
+                            $(this).displayDomEl(domPath);
+                   
 
                         thisId = '';
-                        myHtml = [];
+                        domSelec = [];
                         pathDom = [];
                         inc = 0;
 
                         domSelector = '';
                         domPath = '';
                  
-                }else if(cible === "BODY" && myHtml.length  === 0){
+                }else if(cible === "BODY" &&  domSelec.length  === 0){
                     
                     localStorage.removeItem('domSelector');
-                    localStorage.removeItem('domPath');
-                    
+                    localStorage.removeItem('domPath');                    
                 }
                
 
-            }).on("click", "BODY,BODY *:not(.csss3ui,css3ui *,.EX-UI)", function (event) {
+            }).on("click", "BODY:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI),BODY *:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI)", function (event) {
                 
              
                 let cible = $(this).tagName(); 
@@ -141,12 +138,18 @@ $(document).ready(function () {
                 
             });
 
+        }else {
+
+
+            $('.displayDom').each(function () { $(this).remove(); });
+
+                $(document).off("mouseover", "BODY:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI),BODY *:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI)");
+                $(document).off("click", "BODY:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI),BODY *:not(BODY .csss3ui,BODY css3ui *,BODY .EX-UI)");
+          
         }
-        
 
     };
     
-   
 
 
     $(document).on('mouseover', '.itemData-ruleHtml:not(.itemData-comment)', function () {
@@ -155,9 +158,9 @@ $(document).ready(function () {
         var ui = $(this).children('A').data('groupname');
         var thisRule = $(this).splitRuleHtml(ui);
         console.log('/****/');
-        console.log(thisRule);
-        $(this).displayDomEl(thisRule);
-
+        console.log(thisRule);        
+        $('.displayDom').each(function () { $(this).remove(); });
+         $(this).displayDomEl(thisRule);  
 
     });
 
@@ -270,6 +273,10 @@ $(document).ready(function () {
         }
 
     };
+
+
+
+
 
 
 });

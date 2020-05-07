@@ -1333,60 +1333,7 @@
                                         <label class="multi-child-cell">Y</label>
                                 </div>
                             
-                                <div class="multi-input">      
-                                <?php
-
-                                echo $form_admin->input_flex(array(
-                                     'html'    => array( 'label'=>'','class'=>'switch-label','capsule'=>'switchbox'),
-                                     'input'   => array(  'type'=>'padlock','name'=>'switch-background-position_a',
-                                     'class'=>'switch-checkbox'), 
-                                     'jquery'  => array('format'=>'customRadius',"uiJQ"=>"padLock")
-                                     ));
-                                ?>
-                                <label class="label-externe">background-position</label>
-                                <?php
-
-                                 echo $form_admin->input_flex(array(
-                                'html'    => array('class'=>'flexRow-wrap multi-child-cell'),
-                                'input'   => array('type'=>'text','name'=>'background-position_x_a', 'class'=>'style-input'), 
-                                'jquery'  => array('format'=>'imageXY',"uiJQ"=>"preview", 'animate'=>'true',
-                                                  'duplicate'=>'false','version'=>'3','unity'=>'px','inc'=>'true')
-                                ));
-
-                                 echo $form_admin->input_flex(array(
-                                'html'    => array('class'=>'flexRow-wrap multi-child-cell'),
-                                'input'   => array('type'=>'text','name'=>'background-position_y_a', 'class'=>'style-input'), 
-                                'jquery'  => array('format'=>'imageXY',"uiJQ"=>"preview", 'animate'=>'true',
-                                                  'duplicate'=>'false','version'=>'3','unity'=>'px','inc'=>'true')
-                                ));
-                                ?></div>
-                                <div class="multi-input">      
-                                <?php
-
-                                echo $form_admin->input_flex(array(
-                                     'html'    => array( 'label'=>'','class'=>'switch-label','capsule'=>'switchbox'),
-                                     'input'   => array(  'type'=>'padlock','name'=>'switch-background-size_a',
-                                     'class'=>'switch-checkbox'), 
-                                     'jquery'  => array('format'=>'customRadius',"uiJQ"=>"padLock")
-                                     ));
-                                ?>
-                                <label class="label-externe">Background-size</label>
-                                <?php
-
-                                 echo $form_admin->input_flex(array(
-                                'html'    => array('class'=>'flexRow-wrap multi-child-cell'),
-                                'input'   => array('type'=>'text','name'=>'background-size_x_a', 'class'=>'style-input'), 
-                                'jquery'  => array('format'=>'imageXY',"uiJQ"=>"preview", 'animate'=>'true',
-                                                  'duplicate'=>'false','version'=>'3','unity'=>'px','inc'=>'true')
-                                ));
-
-                                 echo $form_admin->input_flex(array(
-                                'html'    => array('class'=>'flexRow-wrap multi-child-cell'),
-                                'input'   => array('type'=>'text','name'=>'background-size_y_a', 'class'=>'style-input'), 
-                                'jquery'  => array('format'=>'imageXY',"uiJQ"=>"preview", 'animate'=>'true',
-                                                  'duplicate'=>'false','version'=>'3','unity'=>'px','inc'=>'true')
-                                ));
-                                ?></div>
+                     
                                     
                                 </div>
                               
