@@ -46,7 +46,7 @@ $(document).ready(function () {
 
 
 
-            $("BODY, BODY *").not(".css3ui ,.css3ui *").on("click", function (e) {
+            $("BODY, BODY *").not(".css3ui ,.css3ui *").on('click', function (e) {
 
                 //Cette verification de la longueur du tableau
                 //Permet desactiver certains input de l'interface (input[type=""], checkbox, bouton radio)

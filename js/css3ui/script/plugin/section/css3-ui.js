@@ -299,7 +299,7 @@ $('.tabBasic').each(function(event){
 });  
 
 
-$(document).on("click", '[data-jq="duplicate"]', function (e,transmit) {
+$(document).on('click', '[data-jq="duplicate"]', function (e,transmit) {
       
     if(transmit!==false){
        transmit = true;
@@ -861,7 +861,7 @@ $(document).on('change','#css3ui-search',function(){
 
 
 $(document).on('change','#newRule',function(){$(this).createRule('newRule'); });
-$(document).on("click", '.selCss', function(e){e.preventDefault(); $(this).toggleClass('light'); $(this).createRule('selDom'); return false;  }); 
+$(document).on('click', '.selCss', function(e){e.preventDefault(); $(this).toggleClass('light'); $(this).createRule('selDom'); return false;  }); 
 
 
 ///Click sur la lightBox.
@@ -1187,8 +1187,10 @@ var thisData = $(this).constructDataListSheet($(this));
                        thisData.itsMe.toggleClass('illuminate');
                     
                 }
+                //console.error('fixe défixe');
                 
-               
+                
+           
                $(this).updateListSelect(thisData);               
                $(this).defineWorkContext(thisData);
                 if(thisData.groupformat==='ruleHtml'){
@@ -1424,7 +1426,7 @@ $(document).on('click','A[href="#css3uiWarning"]',function(){
 ///////////////Click dans les biblio
 
 
-$(document).on("click", '.aColor', function(){
+$(document).on('click', '.aColor', function(){
         console.log('click');
     
     var thisParent= $(this).parents('.css3ui-biblio').attr('id');
@@ -1527,7 +1529,15 @@ $(document).keydown(function(e) {
 }});
 
 
+///NEW 2020
+/*
+ $('.css3ui').click(function(){
+ 
+  $('.displayDom').each(function () { $(this).remove(); });
+ 
+ });
 
+*/
 
 });
 

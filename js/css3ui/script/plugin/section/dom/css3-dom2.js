@@ -9,45 +9,48 @@ $(document).ready(function () {
         $('body').toggleClass('activeSyd');
         if ($('body').hasClass('activeSyd')) {
 
-          
+
             domSelec = [];
             pathDom = [];
             inc = 0;
-            
+
+
             browseDomClick = [];
             incClick = 0;
-          
 
-            
-            $(document).on("mouseover",  "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)", function (event) {
 
-                console.log( domSelec);
-                console.log(pathDom);
+
+
+
+            $(document).on("mouseover", "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)", function (event) {
+
+                //console.log(domSelec);
+                // console.log(pathDom);
 
                 event.preventDefault();
                 let cible = $(this).tagName();
-            //    console.log('mouseover : '+cible);
-                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! =>'+cible);
+                //console.log('mouseover : ' + cible);
+                //  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! =>'+cible);
                 if (cible !== 'BODY') {
-                    domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule EX-UI"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '">' + cible + '</a>';
+                    domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule EX-UI"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '" class="EX-UI">' + cible + '</a>';
                     pathDom[inc] = cible;
 
                     if ($(this).attr('id')) {
                         let thisID = '#' + $(this).attr('id').replace(/\s/g, '');
-                        console.log('ID du selecteur : '+thisID);
-                        domSelec[inc] += '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '" class="EX-UI">' + thisID + '</a>';                      
+                        //console.log('ID du selecteur : '+thisID);
+                        domSelec[inc] += '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '" class="EX-UI">' + thisID + '</a>';
                         pathDom[inc] += thisID;
 
                     }
 
                     if ($(this).attr('class')) {
 
-                        let thisClass = $(this).attr('class');                       
+                        let thisClass = $(this).attr('class');
                         //Enlève les caractères blanc 
                         let tabClass = thisClass.split(/\s/g, '');
                         let exClass = [];
                         let pathClass = [];
-                        $.each(tabClass, function (key, val) {                        
+                        $.each(tabClass, function (key, val) {
                             if (val !== 'CMA-displayDom' || val !== 'activeSyd' || val !== 'ui-droppable' || val !== 'droppable') {
                                 thisClass = '.' + val;
                                 exClass[key] = '<a href="' + thisClass + '"  class="selCss" data-type="class" data-action="createRule" class="EX-UI">' + thisClass + '</a>';
@@ -65,103 +68,156 @@ $(document).ready(function () {
                     }
 
                     domSelec[inc] += '</p>';
-                
-               
+                    //console.log(domSelec);
+                    //console.log(pathDom);
+
                     inc++;
                     validFunc = true;
                 }
-                
-                if (cible === 'BODY' &&  domSelec.length > 0) {
-                   
-                        domSelec.reverse();
-                        pathDom.reverse();
-                        let domSelector = domSelec.join('');
-                        let domPath = pathDom.join(' ');
 
-                        localStorage.setItem('domSelector',domSelector);
-                        localStorage.setItem('domPath',domPath);
-                     
-                        ////////////////////////
+                if (cible === 'BODY' && domSelec.length > 0) {
 
-                      
+                    domSelec.reverse();
+                    pathDom.reverse();
+                    let domSelector = domSelec.join('');
+                    let domPath = pathDom.join(' ');
+
+                    D.dom.domPath = domPath;
+                    D.dom.domSelector = domSelector;
+
+                    ////////////////////////
+
+                    if (D.dom.fixSelector === false) {
                         //console.table(localStorage);
                         //Doit ce faire au clic dans l'element créer par displayDomEl
-                         $('.displayDom').each(function () { $(this).remove(); });
+                        $('.displayDom').each(function () { $(this).remove(); });
                         //On passe à dysplaydomEl
-                      
-                        console.error(domPath);    
-                        //    console.error('numero de notre item -->>>' + key);
-                            $(this).displayDomEl(domPath);
-                   
 
-                        thisId = '';
-                        domSelec = [];
-                        pathDom = [];
-                        inc = 0;
+                        //console.error(domPath);    
+                        $(this).displayDomEl(domPath);
 
-                        domSelector = '';
-                        domPath = '';
-                 
-                }else if(cible === "BODY" &&  domSelec.length  === 0){
-                    
-                    localStorage.removeItem('domSelector');
-                    localStorage.removeItem('domPath');                    
-                }
-               
+                    }
+                    thisId = '';
+                    domSelec = [];
+                    pathDom = [];
+                    inc = 0;
 
-            }).on("click", "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)", function (event) {
-                
-             
-                let cible = $(this).tagName(); 
-                if(cible !== 'BODY'){
-               
-                console.error("mouseOut -> "+cible);
-                browseDomClick[incClick] = cible;
-                console.error(browseDomClick.length);
+                    domSelector = '';
+                    domPath = '';
+
+                } else if (cible === "BODY" && domSelec.length === 0) {
+
+                    D.dom.domPath = '';
+                    D.dom.domSelector = '';
                 }
-                if(cible === "BODY" && browseDomClick.length > 0){
-                 
-                $('#selAdd > p').remove(); 
-                 
-                if($(this).tagName() === "BODY"){
-                 $('#selAdd').append(localStorage.getItem('domSelector'));
+
+
+            }).on('click', "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)", function (event) {
+
+
+                let cible = $(this).tagName();
+                if (cible !== 'BODY') {
+
+                    // console.error("mouseOut -> "+cible);
+                    browseDomClick[incClick] = cible;
+                    //console.error(browseDomClick.length);
                 }
-                
-                browseDomClick = [];
-                incClick = 0;
-                }else if(cible === "BODY" && browseDomClick.length  === 0){
-                    console.error('//On supprime le localStorage');  
-                    localStorage.removeItem('domSelector');
-                    localStorage.removeItem('domPath');
-                    
+                if (cible === "BODY" && browseDomClick.length > 0) {
+
+                    $('#selAdd > p').remove();
+
+                    if ($(this).tagName() === "BODY") {
+                        $('#selAdd').append(D.dom.domSelector);
+                    }
+
+                    browseDomClick = [];
+                    incClick = 0;
+
+                    //Quand on clic sur un élement dans le DOM du site web. On fixe l'affichage de cette élement 
+                    //Ce qui annule l'affichage au survol
+
+                    //Quand on reclic sur cette élément cela réactive l'affichage au survol
+
+                     D.dom.fixSelector === false ? $(this).bindORunbindViewDom('unbind') :  $(this).bindORunbindViewDom('bind');
+              
+
+                } else if (cible === "BODY" && browseDomClick.length === 0) {
+                    //console.error('//On supprime le localStorage');
+                    D.dom.domSelector = '';
+                    D.dom.domPath = '';
                 }
-                
-                
+
+
             });
 
-        }else {
+        } else {
 
 
             $('.displayDom').each(function () { $(this).remove(); });
 
-                $(document).off("mouseover", "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)");
-                $(document).off("click", "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)");
+            $(document).off('mouseover', "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)");
+            $(document).off('click', "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)");
+
+        }
+
+    };
+
+    $.fn.bindORunbindViewDom = function (way) {
+
+        switch (way) {
+            case 'bind':
+
+                console.log('On idéfixe ;)');
+                D.dom.fixSelector = false;                
+                $('.displayEl').css('background-image', '');
+
+
+            break;
+
+            case 'unbind':
+                console.log('On fixe');
+                $('.displayEl').css('background-image', 'url(' + D.param.dirImg + '/base/ui/cross.png)');
+                D.dom.fixSelector = true;
+            break;
+            
+            ///////////////////////////////////////
+            
+            case 'bindAndUnbLock' : 
+                
+                 console.log('On défixe');
+                D.dom.fixSelector = false;
+                D.dom.blockSelector = false;
+                
+            break;
+            
+            case 'unbindAndBLock' : 
+                
+                 console.log('On fixe');
+                $('.displayEl').css('background-image', 'url(' + D.param.dirImg + '/base/ui/cross.png)');
+                D.dom.fixSelector = true;
+                D.dom.blockSelector = true;
+                
+            break;
+            
           
         }
 
     };
-    
+
 
 
     $(document).on('mouseover', '.itemData-ruleHtml:not(.itemData-comment)', function () {
-
-
-        var ui = $(this).children('A').data('groupname');
-        var thisRule = $(this).splitRuleHtml(ui);
-        console.log('/****/');
-        console.log(thisRule);        
-        $('.displayDom').each(function () { $(this).remove(); });
-         $(this).displayDomEl(thisRule);  
+        
+         console.error(D.dom.fixSelector);
+/*
+        if( D.dom.fixSelector === true){
+            $(this).bindORunbindViewDom('bind'); 
+        }
+   */         var ui = $(this).children('A').data('groupname');
+            var thisRule = $(this).splitRuleHtml(ui);      
+            $('.displayDom').each(function () { $(this).remove(); });    
+            $(this).displayDomEl(thisRule);
+        
 
     });
 
@@ -274,10 +330,5 @@ $(document).ready(function () {
         }
 
     };
-
-
-
-
-
 
 });

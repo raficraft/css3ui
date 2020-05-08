@@ -2,7 +2,7 @@ $(document).ready(function() {
     
     
     $.fn.displayDomEl = function (el) {    
-         console.error('On visualise le tag pointé avec la souris');
+         //console.error('On visualise le tag pointé avec la souris');
          //el = localStorage.getItem('domPath');
      $(el).each(function(key){ 
      if ($(this).css) {
@@ -181,7 +181,7 @@ $(document).ready(function() {
                 else if(data.type === 'element'){
                     
                    let  viewGap = '<span class="displayDom displayEl EX-UI" style=" background:' + data.color + '; position:absolute; min-width:'+ data.W + 'px; min-height:' + data.H + 'px; left:' + data.posX + 'px; top:' + data.posY + 'px; content : " "; " ></span>';
-                        $('body').append(viewGap);
+                        $('.displayContainer_'+key+'').append(viewGap);
                         viewGap = '';
                     
                     
@@ -190,7 +190,7 @@ $(document).ready(function() {
                     var viewGap;
                     if (gap.W > 0 && gap.H > 0) {
                         viewGap = '<span class="displayDom EX-UI" style=" background:' + gap.color + '; position:absolute; min-width:'+ gap.W + 'px; min-height:' + gap.H + 'px; left:' + gap.posX + 'px; top:' + gap.posY + 'px; content : " "; " ></span>';
-                        $('body').append(viewGap);
+                        $('.displayContainer_'+key+'').append(viewGap);
                         viewGap = '';
                     }
                 });

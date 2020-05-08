@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 $.fn.tagName = function () { return this.get(0).tagName; };
 
-
+  
 
 
 D = {};
@@ -38,11 +38,15 @@ D = {
         plugName: "css3ui",
         domLimit: 5,
         nameDataAttr: 'cma',
-        viewALLattribute: false
+        viewALLattribute: false,
+        dirPlug : '/css3ui/js/css3ui/',
+        dirImg : '/css3ui/js/css3ui/img/'
     },
     dom: {
-        domCursorPath: '',
-        imgEl : false
+        domPath: '',
+        domSelector: '',
+        fixSelector : false,
+        blockSelector : false
     }
 };
     
@@ -67,7 +71,7 @@ D = {
       dirWorkImg: '/myWeb/plugImg',
       dirRoot: '/css3ui/',
       dirPlug: '/css3ui/js/css3ui',
-      dirImg: '/css3ui/js/img',
+      dirImg: '/css3ui/js/css3ui/img',
       rightClick: false,
       limit: 'all',
 

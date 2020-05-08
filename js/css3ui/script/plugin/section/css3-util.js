@@ -1078,20 +1078,11 @@ $(document).ready(function () {
             } else {
                 newTab[k] = val + ':not(.EX-UI)';
             }
-
-
-
-
-
         });
 
         newRule = newTab.join(',');
 
         return newRule;
-
-
-
-
 
     };
 
