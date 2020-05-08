@@ -4,7 +4,12 @@ $(document).ready(function() {
     $.fn.displayDomEl = function (el) {    
          //console.error('On visualise le tag pointé avec la souris');
          //el = localStorage.getItem('domPath');
+         
+         console.error('error');
+         console.error(el);
+         
      $(el).each(function(key){ 
+            console.log(key);
      if ($(this).css) {
 
             var elMargin = {}, elPadding = {}, elBorder = {}, elPos = {};

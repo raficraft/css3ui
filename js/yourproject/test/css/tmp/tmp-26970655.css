@@ -12,6 +12,7 @@ padding : 0;
 P:not(.EX-UI){
 margin : 1em;
 padding : 1em;
+float : left;
 }
 h1:not(.EX-UI){
 margin : 1.5em;

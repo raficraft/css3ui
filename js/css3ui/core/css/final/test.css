@@ -12,6 +12,7 @@ padding : 0;
 P{
 margin : 1em;
 padding : 1em;
+float : left;
 }
 h1{
 margin : 1.5em;

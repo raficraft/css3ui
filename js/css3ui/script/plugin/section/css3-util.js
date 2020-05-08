@@ -1062,7 +1062,7 @@ $(document).ready(function () {
 
     $.fn.splitRuleHtml = function (thisRule) {
 
-        console.log('spliRuleHtml');
+        //console.log('spliRuleHtml');
         var thisTab = [];
         thisRule = thisRule.replace(/[, ][ ,][ , ]/g, ",");
 
@@ -1072,9 +1072,14 @@ $(document).ready(function () {
 
         $.each(thisTab, function (k, val) {
 
-
             if (val.match(/::after/) || val.match(/::before/)) {
-                newTab[k] = val;
+                
+                let newVal = val.split('::');
+                console.error(newVal);
+               
+                newTab[k] = val.replace(/::after/g, '')+':not(.EX-UI)::'+newVal[1];
+              
+                 console.error(newTab[k]);
             } else {
                 newTab[k] = val + ':not(.EX-UI)';
             }

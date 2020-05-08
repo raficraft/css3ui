@@ -22,7 +22,7 @@ $(document).ready(function () {
 
 
 
-            $(document).on("mouseover", "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)", function (event) {
+            $(document).on("mouseover", "BODY:not(.EX-UI),BODY *:not(.EX-UI)", function (event) {
 
                 //console.log(domSelec);
                 // console.log(pathDom);
@@ -93,8 +93,8 @@ $(document).ready(function () {
                         $('.displayDom').each(function () { $(this).remove(); });
                         //On passe à dysplaydomEl
 
-                        //console.error(domPath);    
-                        $(this).displayDomEl(domPath);
+                        console.error(domPath);    
+                        $(this).displayDomEl(domPath+':not(.EX-UI)');
 
                     }
                     thisId = '';
@@ -112,7 +112,7 @@ $(document).ready(function () {
                 }
 
 
-            }).on('click', "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)", function (event) {
+            }).on('click', "BODY:not(.EX-UI),BODY *:not(.EX-UI)", function (event) {
 
 
                 let cible = $(this).tagName();
@@ -191,7 +191,7 @@ $(document).ready(function () {
             break;
             
             case 'unbindAndBLock' : 
-                
+         
                  console.log('On fixe');
                 $('.displayEl').css('background-image', 'url(' + D.param.dirImg + '/base/ui/cross.png)');
                 D.dom.fixSelector = true;
