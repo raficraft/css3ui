@@ -26,11 +26,12 @@ $(document).ready(function () {
 
                 //console.log(domSelec);
                 // console.log(pathDom);
+       
 
                 event.preventDefault();
                 let cible = $(this).tagName();
-                //console.log('mouseover : ' + cible);
-                //  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! =>'+cible);
+                
+                console.log('mouseover : ' + cible);
                 if (cible !== 'BODY') {
                     domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule EX-UI"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '" class="EX-UI">' + cible + '</a>';
                     pathDom[inc] = cible;
@@ -47,13 +48,13 @@ $(document).ready(function () {
 
                         let thisClass = $(this).attr('class');
                         //Enlève les caractères blanc 
-                        let tabClass = thisClass.split(/\s/g, '');
+                        let tabClass = thisClass.split(/\s/g);
                         let exClass = [];
                         let pathClass = [];
                         $.each(tabClass, function (key, val) {
                             if (val !== 'CMA-displayDom' || val !== 'activeSyd' || val !== 'ui-droppable' || val !== 'droppable') {
                                 thisClass = '.' + val;
-                                exClass[key] = '<a href="' + thisClass + '"  class="selCss" data-type="class" data-action="createRule" class="EX-UI">' + thisClass + '</a>';
+                                exClass[key] = '<a href="' + thisClass + '"  class="selCss EX-UI" data-type="class" data-action="createRule">' + thisClass + '</a>';
                                 pathClass[key] = '.' + val;
                             }
                         });
@@ -67,15 +68,17 @@ $(document).ready(function () {
                         pathClass = [];
                     }
 
-                    domSelec[inc] += '</p>';
+                  
                     //console.log(domSelec);
                     //console.log(pathDom);
-
+                    domSelec[inc] += '</p>';
                     inc++;
-                    validFunc = true;
+                
                 }
 
                 if (cible === 'BODY' && domSelec.length > 0) {
+                    
+              
 
                     domSelec.reverse();
                     pathDom.reverse();
@@ -86,11 +89,10 @@ $(document).ready(function () {
                     D.dom.domSelector = domSelector;
 
                     ////////////////////////
-
+                    console.log('je traite');
                     if (D.dom.fixSelector === false) {
                         //console.table(localStorage);
                         //Doit ce faire au clic dans l'element créer par displayDomEl
-                        $('.displayDom').each(function () { $(this).remove(); });
                         //On passe à dysplaydomEl
 
                         console.error(domPath);    
@@ -112,7 +114,7 @@ $(document).ready(function () {
                 }
 
 
-            }).on('click', "BODY:not(.EX-UI),BODY *:not(.EX-UI)", function (event) {
+            }).on('click', "BODY:not(.EX-UI), BODY *:not(.EX-UI)", function (event) {
 
 
                 let cible = $(this).tagName();
@@ -126,9 +128,9 @@ $(document).ready(function () {
 
                     $('#selAdd > p').remove();
 
-                    if ($(this).tagName() === "BODY") {
+                  
                         $('#selAdd').append(D.dom.domSelector);
-                    }
+                    
 
                     browseDomClick = [];
                     incClick = 0;
@@ -138,8 +140,14 @@ $(document).ready(function () {
 
                     //Quand on reclic sur cette élément cela réactive l'affichage au survol
 
-                     D.dom.fixSelector === false ? $(this).bindORunbindViewDom('unbind') :  $(this).bindORunbindViewDom('bind');
-              
+                    if( D.dom.fixSelector === false ){ $(this).bindORunbindViewDom('unbind'); }else{ 
+                        
+                        
+                        $(this).displayDomEl(D.dom.domPath+':not(.EX-UI)');
+                        $(this).bindORunbindViewDom('bind');
+                    }
+             
+             
 
                 } else if (cible === "BODY" && browseDomClick.length === 0) {
                     //console.error('//On supprime le localStorage');
@@ -170,13 +178,15 @@ $(document).ready(function () {
                 console.log('On idéfixe ;)');
                 D.dom.fixSelector = false;                
                 $('.displayEl').css('background-image', '');
-
-
+                $('.displayEl').css('background', 'rgba(60,180,255,0.4)');
+ 
             break;
 
             case 'unbind':
                 console.log('On fixe');
+                $('.displayEl').css('background', '');
                 $('.displayEl').css('background-image', 'url(' + D.param.dirImg + '/base/ui/cross.png)');
+                console.log($('.displayEl').css('background-image'));
                 D.dom.fixSelector = true;
             break;
             
@@ -214,8 +224,7 @@ $(document).ready(function () {
             $(this).bindORunbindViewDom('bind'); 
         }
    */         var ui = $(this).children('A').data('groupname');
-            var thisRule = $(this).splitRuleHtml(ui);      
-            $('.displayDom').each(function () { $(this).remove(); });    
+            var thisRule = $(this).splitRuleHtml(ui);       
             $(this).displayDomEl(thisRule);
         
 
@@ -305,7 +314,7 @@ $(document).ready(function () {
                                             console.log('-------------<<<<<<<<<<<   BINGO ON STOCK ruleHtml ' + groupe.groupName + ' level ' + groupe.level + ' >>>>>>>>>>>>>-----------');
                                             var newRule = $(this).splitRuleHtml(groupe.groupName);
 
-                                            $('' + newRule + '').addClass('views');
+                                            //$('' + newRule + '').addClass('views');
 
                                         }
 

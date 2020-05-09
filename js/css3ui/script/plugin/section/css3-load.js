@@ -649,7 +649,6 @@ $('.ui-shazam').each(function(){
 
     }
 $('.css3ui,.css3ui *').addClass('EX-UI');
-$('BODY').addClass('droppable');
 
 });
 

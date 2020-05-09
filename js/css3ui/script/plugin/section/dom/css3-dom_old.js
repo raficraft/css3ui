@@ -298,7 +298,7 @@ $(document).ready(function () {
                                             console.log('-------------<<<<<<<<<<<   BINGO ON STOCK ruleHtml ' + groupe.groupName + ' level ' + groupe.level + ' >>>>>>>>>>>>>-----------');
                                             var newRule = $(this).splitRuleHtml(groupe.groupName);
 
-                                            $('' + newRule + '').addClass('views');
+                                            //$('' + newRule + '').addClass('views');
 
                                         }
 

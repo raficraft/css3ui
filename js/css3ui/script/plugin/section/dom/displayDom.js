@@ -4,9 +4,8 @@ $(document).ready(function() {
     $.fn.displayDomEl = function (el) {    
          //console.error('On visualise le tag pointé avec la souris');
          //el = localStorage.getItem('domPath');
-         
-         console.error('error');
-         console.error(el);
+                $('.displayDom').each(function () { $(this).remove(); });
+      
          
      $(el).each(function(key){ 
             console.log(key);

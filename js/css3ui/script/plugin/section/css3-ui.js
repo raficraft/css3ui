@@ -10,7 +10,7 @@ $(".moveJS").draggable({
          
          element = $(this).attr('id');
           
-            $(this).css('opacity',0.4);
+            $(this).css('opacity',1);
             
               var tabPanel = [
                     
