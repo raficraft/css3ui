@@ -1641,6 +1641,7 @@ background : rgba(255,70,60,1);
 .listData A{
     font-family: arial;
 }
+
  
 /* Feuille de style css3uiDB.css */
 
@@ -1806,6 +1807,7 @@ text-indent : 0.25em;
     display : -webkit-box;   
     display : -ms-flexbox;   
     display : flex;
+    background : rgba(88,88,88,1);
 
 }
 .ULProject li A{   
@@ -1829,9 +1831,7 @@ padding-right : 0.5rem;
 padding-top : 0.25em;
 padding-bottom : 0.25em;
 }
-.ULProject li{    
-background : rgba(88,88,88,1);
-}
+
 .ULProject li:hover,.ULProject li:nth-child(2n):hover{    
 background : rgba(255,70,60,1);
 }
@@ -1884,6 +1884,19 @@ flex-wrap : nowrap;
 background : rgba(100,160,40,1);
 box-shadow : 0px 0px 5px 1px black inset;
 }
+
+.listData-group-empty{
+    background : rgba(240,140,0,1);
+    
+}
+.listData-group-empty li a{
+   
+    color : white !important;
+}
+
+
+
+
 .multiBack-fantom{
 background : rgba(255,70,60,1);
 min-width: 160px;
@@ -1925,19 +1938,33 @@ border : 1px solid rgba(0,0,0,1);
 background : rgba(80,150,220,1);
 }
 
-.itemData-ruleHtml{
-background : rgba(255,70,60,1);
-background-image : -webkit-linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : -O-linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : -webkit-linear-gradient(left , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-size : 92%;
-background-repeat : no-repeat;
-background-position : 0 50%;
+
+.itemData-ruleHtml{background : rgba(255,70,60,1);}
+.itemData-comment {background : rgba(128,128,128,1);}
+.itemData-media{background : rgba(100,160,40,1);}
+.itemData-keyframe{background : rgba(80,150,220,1);}
+
+
+.itemData.disableGroup{
+    background: white !important;
 }
 
-.itemData-comment {
-background : rgba(128,128,128,1);
+.itemData.disableGroup > A{  
+    text-decoration: line-through;
+}
+
+.itemData-rule-important{
+    background : yellow !important;
+}
+.itemData-rule-disable{
+    background : white !important;
+}
+.itemData-rule-disable A{
+    text-decoration: line-through !important;
+}
+
+.blankLine-right{
+    
 background-image : -webkit-linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
 background-image : -O-linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
 background-image : -webkit-linear-gradient(left , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
@@ -1945,29 +1972,9 @@ background-image : linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,
 background-position : 0% 50%;
 background-repeat : no-repeat;
 background-size : 92%;
+    
 }
 
-.itemData-media{
-background : rgba(100,160,40,1);
-background-image : -webkit-linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : -O-linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : -webkit-linear-gradient(left , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-position : 0% 50%;
-background-repeat : no-repeat;
-background-size : 92%;
-}
-
-.itemData-keyframe{
-background : rgba(80,150,220,1);
-background-position : 0% 50%;
-background-repeat : no-repeat;
-background-size : 92%;
-background-image : -webkit-linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : -O-linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : -webkit-linear-gradient(left , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-background-image : linear-gradient(90deg , rgba(255,255,255,0)4px, rgba(255,255,255,0)5px, rgba(255,255,255,1)6px, rgba(255,255,255,0)7px, rgba(255,255,255,0)100%);
-}
 
 
 
@@ -2000,6 +2007,11 @@ background-image : -webkit-repeating-linear-gradient(0deg , rgba(0,0,0,1)0%, rgb
 background-image : -O-repeating-linear-gradient(0deg , rgba(0,0,0,1)0%, rgba(96,96,96,1)50%, rgba(0,0,0,1)100%);
 background-image : -webkit-repeating-linear-gradient(bottom , rgba(0,0,0,1)0%, rgba(96,96,96,1)50%, rgba(0,0,0,1)100%);
 background-image : repeating-linear-gradient(0deg , rgba(0,0,0,1)0%, rgba(96,96,96,1)50%, rgba(0,0,0,1)100%);
+}
+
+
+.listData-rule A:nth-child(2){
+margin-left : 1em;
 }
 
 
@@ -2051,17 +2063,9 @@ min-width: 35%;
 }
 
 
-.listData-rule A:nth-child(2){
-margin-left : 1em;
-}
 
-.styleSheet{
-  
-     height : 100%;
-     max-height : 660px;
-     overflow:  hidden;
-    
-}
+
+
 .styleSheet {
     
     width : 100%;
@@ -2296,16 +2300,6 @@ justify-content : center;
     display: flex;
     flex-direction: column;
 }
-#styleDb *{
-    max-width : 328px;
-}
-
-#styleDb{    
-    max-width : 328px; 
-  
-}
-
-
 .css3uiWarning{
     background:yellow;
     color : black!important;
@@ -2317,23 +2311,7 @@ justify-content : center;
 }
 
 
-.itemData.disableGroup{
-    background: white !important;
-}
 
-.itemData.disableGroup > A{  
-    text-decoration: line-through;
-}
-
-.itemData-rule-important{
-    background : yellow !important;
-}
-.itemData-rule-disable{
-    background : white !important;
-}
-.itemData-rule-disable A{
-    text-decoration: line-through !important;
-}
 
 
 
@@ -2464,21 +2442,13 @@ content : ' ';
 display : flex;
 }
 
-.listData-group-empty{
-    background : rgba(240,140,0,1);
-    
-}
-.listData-group-empty li a{
-   
-    color : white !important;
-}
+
 
 .css3ui #newRule{
     
     min-width : 242px;
     min-height : 32px;
     height : auto;
-    
     overflow :no-display;
     
 }
@@ -2563,3 +2533,7 @@ display : flex;
 
 
 
+.CMA-panelControl{
+    
+    background-color: rgba(34,40,42,1);
+}

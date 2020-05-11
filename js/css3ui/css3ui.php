@@ -1,8 +1,5 @@
 <?php
 
-define("css3uiRoot",'/release/js');
-
-
 
 
 
@@ -27,7 +24,6 @@ include_once('core/php/core.php');
 			  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
 			  crossorigin="anonymous"></script>
                           
-                          
                           <script
 			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
 			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
@@ -38,7 +34,7 @@ include_once('core/php/core.php');
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-util.js"></script>
 
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-t.js"></script>
-<script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-listSheet.js"></script>
+<script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/listSheet/css3-listSheet.js"></script>
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-method.js"></script>
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-forCss.js"></script>
 

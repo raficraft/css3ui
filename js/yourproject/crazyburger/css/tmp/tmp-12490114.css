@@ -86,7 +86,7 @@ transform : translateX(-50%) translateY(50%);
 top : 50%;
 left : 50%;
 }
-.menu-icon span::before,.menu-icon span::after{
+.menu-icon span::before:not(.EX-UI)::before,.menu-icon span:not(.EX-UI)::after{
 display : block;
 position : absolute;
 width : 22px;
@@ -96,13 +96,13 @@ transform : translateY(-6px);
 transition : all 500ms linear 0s;
 content : " ";
 }
-.menu-icon span::after{
+.menu-icon span:not(.EX-UI)::after{
 transform : translateY(6px);
 }
-.menu-icon:hover span::before{
+.menu-icon:hover span::before:not(.EX-UI)::before{
 transform : translateY(-8px);
 }
-.menu-icon:hover span::after{
+.menu-icon:hover span:not(.EX-UI)::after{
 transform : translateY(8px);
 }
 /*menu-icon-cross*/
@@ -110,7 +110,7 @@ transform : translateY(8px);
 .menu-icon-cross:not(.EX-UI){
 transition : all 500ms linear 0s;
 }
-.menu-icon-cross span::before,.menu-icon span::after{
+.menu-icon-cross span::before:not(.EX-UI)::before,.menu-icon span:not(.EX-UI)::after{
 transform-origin : 50% 50%;
 }
 .menu-icon-cross span:not(.EX-UI){

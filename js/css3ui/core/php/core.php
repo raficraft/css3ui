@@ -14,8 +14,6 @@
                 </fieldset>
             </div>
             
-            
-            
             <div id="track">
                 <div id="infoAction"  class="panelMessage"></div>
                 <div id="infoProject" class="panelMessage"></div>
@@ -296,7 +294,7 @@
                                echo $form_admin->input_flex(array(
                                'html'    => array( 'class'=>'flexRow-wrap bloc-color'),
                                'input'   => array( 'type'=>'color','name'=>'color','class'=>'brick-input'),        
-                               'jquery'  => array( 'duplicate'=>"false", 'format'=>'color',"uiJQ"=>"preview", 'animate'=>'no','default'=>'inherit', 'rightclick'=> 'true')
+                               'jquery'  => array( 'duplicate'=>"false", 'format'=>'color',"uiJQ"=>"preview", 'animate'=>'no','default'=>'inherit')
                                ));
                                ?>
                                </div>
@@ -707,8 +705,8 @@
                                 <div class="multi-input" data-group="text-shadow" data-inc="0"> 
 
                                         <span class="bloc-duplicate">
-                                      <a href="add-rule" data-jq="duplicate" class="add-data">+</a>
-                                      <a href="del-rule" data-jq="duplicate" class="del-data">-</a>
+                                      <a href="add-rule" data-jq="duplicate" class="add-data" data-duplicate="add-data">+</a>
+                                      <a href="del-rule" data-jq="duplicate" class="del-data" data-duplicate="del-data">-</a>
                                       <?php
                                                              echo $form_admin->input_flex(array(
                                    'html'    => array( 'label'=>'','class'=>'switch-label switch-xy','capsule'=>'switchbox'),
@@ -780,8 +778,8 @@
                                <div class="multi-input" data-group="box-shadow" data-inc="0"> 
 
                                           <span class="bloc-duplicate">
-                                      <a href="add-rule" data-jq="duplicate" class="add-data">+</a>
-                                      <a href="del-rule" data-jq="duplicate" class="del-data">-</a>
+                                      <a href="add-rule" data-jq="duplicate" class="add-data" data-duplicate="add-data">+</a>
+                                      <a href="del-rule" data-jq="duplicate" class="del-data" data-duplicate="del-data">-</a>
                                       <?php
                                                              echo $form_admin->input_flex(array(
                                    'html'    => array( 'label'=>'','class'=>'switch-label switch-xy','capsule'=>'switchbox'),
@@ -980,7 +978,6 @@
                                 
                              <div class="css3ui-col title-del">
                                     <div class="css3ui-hr"></div>
-                                    <a href="addTransparentColor" data-jq="addRules" class="link-delRules">Declare transparent color</a>
                                     <a href="background-color" data-jq="delRules" class="link-delRules">Delete color</a>
                                </div>    
                       
@@ -1018,8 +1015,8 @@
                                     <div class="multi-input" data-group="gradient" data-inc="0"> 
 
                                         <span class="bloc-duplicate">
-                                           <a href="add-rule" data-jq="duplicate" class="add-data">+</a>
-                                           <a href="del-rule" data-jq="duplicate" class="del-data">-</a>
+                                           <a href="add-rule" data-jq="duplicate" class="add-data" data-duplicate="add-data">+</a>
+                                           <a href="del-rule" data-jq="duplicate" class="del-data" data-duplicate="del-data">-</a>
                                         </span>
 
                                         <?php 
@@ -1049,8 +1046,8 @@
                                     <div class="multi-input" data-group="gradient" data-inc="1"> 
 
                                         <span class="bloc-duplicate">
-                                           <a href="add-rule" data-jq="duplicate" class="add-data">+</a>
-                                           <a href="del-rule" data-jq="duplicate" class="del-data">-</a>
+                                           <a href="add-rule" data-jq="duplicate" class="add-data" data-duplicate="add-data">+</a>
+                                           <a href="del-rule" data-jq="duplicate" class="del-data" data-duplicate="del-data">-</a>
                                         </span>
 
                                         <?php 
@@ -1333,7 +1330,60 @@
                                         <label class="multi-child-cell">Y</label>
                                 </div>
                             
-                     
+                                <div class="multi-input">      
+                                <?php
+
+                                echo $form_admin->input_flex(array(
+                                     'html'    => array( 'label'=>'','class'=>'switch-label','capsule'=>'switchbox'),
+                                     'input'   => array(  'type'=>'padlock','name'=>'switch-background-position_a',
+                                     'class'=>'switch-checkbox'), 
+                                     'jquery'  => array('format'=>'customRadius',"uiJQ"=>"padLock")
+                                     ));
+                                ?>
+                                <label class="label-externe">background-position</label>
+                                <?php
+
+                                 echo $form_admin->input_flex(array(
+                                'html'    => array('class'=>'flexRow-wrap multi-child-cell'),
+                                'input'   => array('type'=>'text','name'=>'background-position_x_a', 'class'=>'style-input'), 
+                                'jquery'  => array('format'=>'imageXY',"uiJQ"=>"preview", 'animate'=>'true',
+                                                  'duplicate'=>'false','version'=>'3','unity'=>'px','inc'=>'true')
+                                ));
+
+                                 echo $form_admin->input_flex(array(
+                                'html'    => array('class'=>'flexRow-wrap multi-child-cell'),
+                                'input'   => array('type'=>'text','name'=>'background-position_y_a', 'class'=>'style-input'), 
+                                'jquery'  => array('format'=>'imageXY',"uiJQ"=>"preview", 'animate'=>'true',
+                                                  'duplicate'=>'false','version'=>'3','unity'=>'px','inc'=>'true')
+                                ));
+                                ?></div>
+                                <div class="multi-input">      
+                                <?php
+
+                                echo $form_admin->input_flex(array(
+                                     'html'    => array( 'label'=>'','class'=>'switch-label','capsule'=>'switchbox'),
+                                     'input'   => array(  'type'=>'padlock','name'=>'switch-background-size_a',
+                                     'class'=>'switch-checkbox'), 
+                                     'jquery'  => array('format'=>'customRadius',"uiJQ"=>"padLock")
+                                     ));
+                                ?>
+                                <label class="label-externe">Background-size</label>
+                                <?php
+
+                                 echo $form_admin->input_flex(array(
+                                'html'    => array('class'=>'flexRow-wrap multi-child-cell'),
+                                'input'   => array('type'=>'text','name'=>'background-size_x_a', 'class'=>'style-input'), 
+                                'jquery'  => array('format'=>'imageXY',"uiJQ"=>"preview", 'animate'=>'true',
+                                                  'duplicate'=>'false','version'=>'3','unity'=>'px','inc'=>'true')
+                                ));
+
+                                 echo $form_admin->input_flex(array(
+                                'html'    => array('class'=>'flexRow-wrap multi-child-cell'),
+                                'input'   => array('type'=>'text','name'=>'background-size_y_a', 'class'=>'style-input'), 
+                                'jquery'  => array('format'=>'imageXY',"uiJQ"=>"preview", 'animate'=>'true',
+                                                  'duplicate'=>'false','version'=>'3','unity'=>'px','inc'=>'true')
+                                ));
+                                ?></div>
                                     
                                 </div>
                               
@@ -1968,7 +2018,8 @@
             echo $form_admin->fieldset('flexColumn-noWrap', 'transition','css3ui-transition');?>
             <div class="css3ui-col transition" data-group="transition" data-inc="0" id="transition_0">
                 
-                <span class="bloc-duplicate"><a href="add-rule" data-jq="duplicate" class="add-data">+</a><a href="del-rule" data-jq="duplicate" class="del-data">-</a></span>
+                <span class="bloc-duplicate"><a href="add-rule" data-jq="duplicate" class="add-data" data-duplicate="add-data">+</a>
+                    <a href="del-rule" data-jq="duplicate" class="del-data" data-duplicate="del-data">-</a></span>
                 
             <?php
                 echo $form_admin->input_flex(array(
@@ -2014,17 +2065,7 @@
                 ));
             echo $form_admin->endfield(); 
             
-      ?>
-
-           </div> 
-   
-</div> 
-
-
-
-
-    <div id="bibliotheque" class="moveJS ui-shazam css3ui css3ui-db css3ui-shazam css3ui-look">
-     <?php
+    
            echo $form_admin->fieldset('flexColumn-noWrap', 'biblio','css3ui-biblio');?>
                         
                 <ul class="FRW-around-center tabBasic perspective" id="css3ui-biblioIcon"> 
@@ -2092,7 +2133,15 @@
             <?php
             echo $form_admin->endfield();     
             ?>
-    </div>
+
+           </div> 
+   
+</div> 
+
+
+
+
+   
 
 
 

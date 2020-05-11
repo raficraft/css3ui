@@ -83,7 +83,7 @@ $.each(el,function(key,thisEl){
             }
           
             //On affiche le group          
-            listEl +='<li class="itemData '+stateGroup+' itemData-'+thisEl.format+' EX-UI"  \n\
+            listEl +='<li class="itemData '+stateGroup+' itemData-'+thisEl.format+' blankLine-right EX-UI"  \n\
                         data-table="group"  data-rightClick="true" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -95,7 +95,7 @@ $.each(el,function(key,thisEl){
                         data-state="'+thisEl.actif+'" \n\
                         '+haveRuleCss+' \n\
                         data-myparent="'+thisEl.myParent+'">\n\
-                        <a data-css3ui="openGroup" data-el="clickArrow_'+thisEl.idToGroup+'" class="EX-UI"\n\
+                        <a class="EX-UI" data-css3ui="openGroup" data-el="clickArrow_'+thisEl.idToGroup+'" \n\
                         data-table="group" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -107,7 +107,7 @@ $.each(el,function(key,thisEl){
                         data-state="'+thisEl.actif+'" \n\
                         '+haveRuleCss+' \n\
                         data-myparent="'+thisEl.myParent+'">&#9654</a>\n\
-                        <a data-css3ui="listRule"  data-el="clickGroup_'+thisEl.idToGroup+'" class="EX-UI"\n\
+                        <a class="EX-UI" data-css3ui="listRule"  data-el="clickGroup_'+thisEl.idToGroup+'" \n\
                         data-table="group" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -118,7 +118,21 @@ $.each(el,function(key,thisEl){
                         data-idlinkgroup="'+thisEl.idToGroup+'"\n\
                         data-state="'+thisEl.actif+'" \n\
                         '+haveRuleCss+' \n\
-                        data-myparent="'+thisEl.myParent+'">'+thisEl.groupName+'</a>'; 
+                        data-myparent="'+thisEl.myParent+'">'+thisEl.groupName+'</a>\n\
+                        <a class="EX-UI" data-css3ui="addRule"  data-el="clickGroup_'+thisEl.idToGroup+'" \n\
+                        data-table="group" \n\
+                        data-idgroup="'+thisEl.idGroup+'" \n\
+                        data-groupformat="'+thisEl.format+'" \n\
+                        data-level="'+thisEl.level+'" \n\
+                        data-position="'+thisEl.position+'" \n\
+                        data-child="'+thisEl.child+'" \n\
+                        data-groupname="'+thisEl.groupName+'" \n\
+                        data-idlinkgroup="'+thisEl.idToGroup+'"\n\
+                        data-state="'+thisEl.actif+'" \n\
+                        '+haveRuleCss+' \n\
+                        data-myparent="'+thisEl.myParent+'">+</a>'; 
+            
+       
             
                 if(thisEl.format === 'ruleHtml'){
                      

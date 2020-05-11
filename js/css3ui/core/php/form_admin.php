@@ -107,8 +107,8 @@ if(isset($options['input'])){
         $r .= '>';  
   }
         if($thisDuplicate == 1){  
-        $r .= '<span class="bloc-duplicate"><a href="add-rule" data-JQ="duplicate" class="add-data">+</a>'
-                . '<a href="del-rule" data-JQ="duplicate" class="del-data">-</a></span>';              
+        $r .= '<span class="bloc-duplicate"><a href="add-rule" data-JQ="duplicate" data-duplicate="add-data" class="add-data">+</a>'
+                . '<a href="del-rule" data-JQ="duplicate" data-duplicate="del-data" class="del-data">-</a></span>';              
         }
   
 /*Si input boucle une fois  si multi boucle sur le tableau*/

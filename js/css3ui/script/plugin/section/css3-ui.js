@@ -301,15 +301,18 @@ $('.tabBasic').each(function(event){
 
 $(document).on('click', '[data-jq="duplicate"]', function (e,transmit) {
       
+        console.log('error click');
     if(transmit!==false){
        transmit = true;
     }
     
-    var action = $(this).attr('class');      
+    var action = $(this).data('duplicate');      
     var zeGroup = $(this).parent().parent(); 
     var format = zeGroup.data('group');
       
+        console.log(action);
         if(action==='add-data'){
+            
             
             var zeClone = zeGroup.clone(true);   
             zeClone.insertAfter(zeGroup);
@@ -326,7 +329,7 @@ $(document).on('click', '[data-jq="duplicate"]', function (e,transmit) {
             if(transmit === true){
             if(format==='gradient'){format='multiBack';}              
             dataPrev.format = format;
-            $(this).preview(true);
+           // $(this).preview(true);
             }
         return false;    
         
@@ -862,6 +865,11 @@ $(document).on('change','#css3ui-search',function(){
 
 $(document).on('change','#newRule',function(){$(this).createRule('newRule'); });
 $(document).on('click', '.selCss', function(e){e.preventDefault(); $(this).toggleClass('light'); $(this).createRule('selDom'); return false;  }); 
+$(document).on('mouseover', '.selCss', function(e){
+    e.preventDefault(); console.log("OVER SA MERE");
+        let el = $(this).attr('href');  $(this).displayDomEl(el);
+}); 
+
 
 
 ///Click sur la lightBox.

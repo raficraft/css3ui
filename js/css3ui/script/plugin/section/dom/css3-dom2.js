@@ -19,30 +19,28 @@ $(document).ready(function () {
             incClick = 0;
 
 
-
-
-
-            $(document).on("mouseover", "BODY:not(.EX-UI),BODY *:not(.EX-UI)", function (event) {
+            $("buffer, buffer *").not('.EX-UI').on("mouseover",function (e){
 
                 //console.log(domSelec);
                 // console.log(pathDom);
        
 
-                event.preventDefault();
+                e.preventDefault();
                 let cible = $(this).tagName();
                 
                 console.log('mouseover : ' + cible);
-                if (cible !== 'BODY') {
-                    domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule EX-UI"><a href="' + cible + '" data-' + dataJQ + '="selCss" data-tag="' + cible + '" class="EX-UI">' + cible + '</a>';
+                if (cible !== 'BUFFER') {
+                    domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule EX-UI"><a href="' + cible + '" class="selCss EX-UI" data-type="cible" data-action="createRule">' + cible + '</a>';
                     pathDom[inc] = cible;
 
                     if ($(this).attr('id')) {
                         let thisID = '#' + $(this).attr('id').replace(/\s/g, '');
                         //console.log('ID du selecteur : '+thisID);
-                        domSelec[inc] += '<a href="' + thisID + '" data-' + dataJQ + '="selCss" data-id="' + thisID + '" class="EX-UI">' + thisID + '</a>';
+                        domSelec[inc] += '<a href="' + thisID + '" class="selCss EX-UI" data-type="id" data-action="createRule" >' + thisID + '</a>';
                         pathDom[inc] += thisID;
 
                     }
+
 
                     if ($(this).attr('class')) {
 
@@ -76,7 +74,7 @@ $(document).ready(function () {
                 
                 }
 
-                if (cible === 'BODY' && domSelec.length > 0) {
+                if (cible === 'BUFFER' && domSelec.length > 0) {
                     
               
 
@@ -107,14 +105,14 @@ $(document).ready(function () {
                     domSelector = '';
                     domPath = '';
 
-                } else if (cible === "BODY" && domSelec.length === 0) {
+                } else if (cible === "BUFFER" && domSelec.length === 0) {
 
                     D.dom.domPath = '';
                     D.dom.domSelector = '';
                 }
 
 
-            }).on('click', "BODY:not(.EX-UI), BODY *:not(.EX-UI)", function (event) {
+            }).on('click', function (event) {
 
 
                 let cible = $(this).tagName();
@@ -124,7 +122,7 @@ $(document).ready(function () {
                     browseDomClick[incClick] = cible;
                     //console.error(browseDomClick.length);
                 }
-                if (cible === "BODY" && browseDomClick.length > 0) {
+                if (cible === "BUFFER" && browseDomClick.length > 0) {
 
                     $('#selAdd > p').remove();
 
@@ -149,7 +147,7 @@ $(document).ready(function () {
              
              
 
-                } else if (cible === "BODY" && browseDomClick.length === 0) {
+                } else if (cible === "BUFFER" && browseDomClick.length === 0) {
                     //console.error('//On supprime le localStorage');
                     D.dom.domSelector = '';
                     D.dom.domPath = '';
@@ -161,10 +159,9 @@ $(document).ready(function () {
         } else {
 
 
-            $('.displayDom').each(function () { $(this).remove(); });
-
-            $(document).off('mouseover', "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)");
-            $(document).off('click', "BODY:not(BODY .EX-UI),BODY *:not(BODY .EX-UI)");
+                    $('.displayDom').each(function () { $(this).remove(); });
+                    $("buffer *").not('.EX-UI').unbind('click');        
+                    $('buffer *').not('.EX-UI').unbind('mouseover'); 
 
         }
 
@@ -223,9 +220,9 @@ $(document).ready(function () {
         if( D.dom.fixSelector === true){
             $(this).bindORunbindViewDom('bind'); 
         }
-   */         var ui = $(this).children('A').data('groupname');
+   */       var ui = $(this).children('A').data('groupname');
             var thisRule = $(this).splitRuleHtml(ui);       
-            $(this).displayDomEl(thisRule);
+          //  $(this).displayDomEl(thisRule);
         
 
     });
