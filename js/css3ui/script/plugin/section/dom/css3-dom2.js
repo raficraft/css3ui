@@ -135,20 +135,15 @@ $(document).ready(function () {
 
                     //Quand on clic sur un élement dans le DOM du site web. On fixe l'affichage de cette élement 
                     //Ce qui annule l'affichage au survol
-
                     //Quand on reclic sur cette élément cela réactive l'affichage au survol
 
-                    if( D.dom.fixSelector === false ){ $(this).bindORunbindViewDom('unbind'); }else{ 
-                        
+                    if( D.dom.fixSelector === false ){ $(this).bindORunbindViewDom('fix'); }else{                         
                         
                         $(this).displayDomEl(D.dom.domPath+':not(.EX-UI)');
-                        $(this).bindORunbindViewDom('bind');
+                        $(this).bindORunbindViewDom('unFix');
                     }
-             
-             
 
                 } else if (cible === "BUFFER" && browseDomClick.length === 0) {
-                    //console.error('//On supprime le localStorage');
                     D.dom.domSelector = '';
                     D.dom.domPath = '';
                 }
@@ -170,7 +165,7 @@ $(document).ready(function () {
     $.fn.bindORunbindViewDom = function (way) {
 
         switch (way) {
-            case 'bind':
+            case 'unFix':
 
                 console.log('On idéfixe ;)');
                 D.dom.fixSelector = false;                
@@ -179,7 +174,7 @@ $(document).ready(function () {
  
             break;
 
-            case 'unbind':
+            case 'fix':
                 console.log('On fixe');
                 $('.displayEl').css('background', '');
                 $('.displayEl').css('background-image', 'url(' + D.param.dirImg + '/base/ui/cross.png)');
@@ -215,15 +210,12 @@ $(document).ready(function () {
 
     $(document).on('mouseover', '.itemData-ruleHtml:not(.itemData-comment)', function () {
         
-         console.error(D.dom.fixSelector);
-/*
-        if( D.dom.fixSelector === true){
-            $(this).bindORunbindViewDom('bind'); 
-        }
-   */       var ui = $(this).children('A').data('groupname');
-            var thisRule = $(this).splitRuleHtml(ui);       
-          //  $(this).displayDomEl(thisRule);
-        
+         console.error(D.dom.fixSelector);      
+         var ui = $(this).children('A').data('groupname');
+         var thisRule = $(this).splitRuleHtml(ui);       
+         $(this).displayDomEl(thisRule);
+         
+
 
     });
 

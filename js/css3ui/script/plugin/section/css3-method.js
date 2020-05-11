@@ -248,9 +248,9 @@ $(document).ready(function () {
                 }
 
                 /*Procedure de fin*/
-
+                
                 //$(ruleHtml).not('.css3ui , .css3ui *').addClass('views');
-                $(this).displayDomEl(ruleHtml)
+                $(this).displayDomEl(ruleHtml);
                 $.cookie('ruleHtml', ruleHtml, { expires: 70 });
 
                 dataPrev.ruleHtml = $.cookie('ruleHtml');

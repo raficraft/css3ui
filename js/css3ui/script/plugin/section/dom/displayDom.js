@@ -4,16 +4,17 @@ $(document).ready(function() {
     $.fn.displayDomEl = function (el) {    
          //console.error('On visualise le tag pointé avec la souris');
          //el = localStorage.getItem('domPath');
-                $('.displayDom').each(function () { $(this).remove(); });
+         $('.displayDom').each(function () { $(this).remove(); });
+         D.dom.fixSelector = false;
       
          
-     $(el).each(function(key){ 
-            console.log(key);
+     $(el+':not(.EX-UI)').each(function(key){ 
+            console.log($(this));
      if ($(this).css) {
 
             var elMargin = {}, elPadding = {}, elBorder = {}, elPos = {};
 
-            var elW, elH;
+            var elW, elH, boxSize;
             
             
             $(this).css('margin-top')     ? elMargin.top = parseFloat($(this).css('margin-top').substring(0, $(this).css('margin-top').length - 2))          : elMargin.top = 0;
@@ -42,10 +43,150 @@ $(document).ready(function() {
             $(this).css('width') ? elW = parseFloat($(this).css('width').substring(0, $(this).css('width').length - 2))  : elW = 0;
             $(this).css('height') ? elH = parseFloat($(this).css('height').substring(0, $(this).css('height').length - 2)):elH =0;
 
+        $(this).css('box-sizing') ? boxSize = $(this).css('box-sizing') : boxSize = 'content-box';
+
+        console.error(boxSize);
+        console.log('largeur de l élément : ' + elW);
+        console.log('hauteur de l élément : ' + elH);
+        console.table(elPos);
+
+        switch (boxSize) {
+
+            case 'border-box':
+
+
+                console.log('box - sizing = border-box or padding-box');
+                
+                
+                
+        var padding = {
+            type: 'padding',
+            top: {
+                W: elW - elBorder.left - elBorder.right,
+                H: elPadding.top,
+                posY: elPos.top + elMargin.top + elBorder.top,
+                posX: elPos.left + elMargin.left + elBorder.left,
+                color: ' rgba(120,255,0,0.4)'
+
+            },
+            bottom: {
+                W: elW - elBorder.left - elBorder.right,
+                H: elPadding.bottom,
+                posY: elPos.top + elMargin.top + elH - elBorder.bottom - elPadding.bottom,
+                posX: elPos.left + elMargin.left + elBorder.left,
+                color: ' rgba(120,255,0,0.4)'
+            },
+            left: {
+                W: elPadding.left,
+                H: elH - elPadding.top - elPadding.bottom - elBorder.bottom - elBorder.top,
+                posY: elPos.top + elMargin.top + elBorder.top + elPadding.top,
+                posX: elPos.left + elMargin.left + elBorder.left,
+                color: ' rgba(220,55,0,0.4)'
+            },
+            right: {
+                W: elPadding.right,
+                H: elH - elPadding.top - elPadding.bottom - elBorder.bottom - elBorder.top,
+                posY: elPos.top + elMargin.top + elBorder.top + elPadding.top,
+                posX: elPos.left + elMargin.left + elW - elBorder.right - elPadding.right,
+                color: ' rgba(220,55,0,0.4)'
+            }
+        };
+
+        var border = {
+
+            type: 'border',
+            top: {
+                W: elW,
+                H: elBorder.top,
+                posY: elPos.top + elMargin.top,
+                posX: elPos.left + elMargin.left,
+                color: ' rgba(255,255,80,1)'
+
+            },
+            bottom: {
+                W: elW,
+                H: elBorder.bottom,
+                posY: elPos.top + elMargin.top + elH - elBorder.bottom,
+                posX: elPos.left + elMargin.left,
+                color: ' rgba(255,255,80,1)'
+            },
+            left: {
+                W: elBorder.left,
+                H: elH - elBorder.top - elBorder.bottom,
+                posY: elPos.top + elMargin.top + elBorder.top,
+                posX: elPos.left + elMargin.left,
+                color: ' rgba(255,55,80,1)'
+            },
+            right: {
+                W: elBorder.right,
+                H: elH - elBorder.top - elBorder.bottom,
+                posY: elPos.top + elMargin.top + elBorder.top,
+                posX: elPos.left + elMargin.left + elBorder.left + elW - elBorder.left - elBorder.right,
+                color: ' rgba(255,55,80,1)'
+            }
+
+
+        };
+        var margin = {
+            type: 'margin',
+            top: {
+                W: elMargin.left + elW + elMargin.right,
+                H: elMargin.top,
+                posY: elPos.top,
+                posX: elPos.left,
+                color: ' rgba(255,0,0,0.4)'
+
+            },
+            bottom: {
+                W: elMargin.left + elW + elMargin.right,
+                H: elMargin.bottom,
+                posY: elPos.top + elMargin.top + elH,
+                posX: elPos.left,
+                color: ' rgba(255,0,0,0.4)'
+            },
+            left: {
+                W: elMargin.left,
+                H: elH,
+                posY: elPos.top + elMargin.top,
+                posX: elPos.left,
+                color: ' rgba(25,0,0,0.4)'
+            },
+            right: {
+                W: elMargin.right,
+                H: elH,
+                posY: elPos.top + elMargin.top,
+                posX: elPos.left + elMargin.left + elW,
+                color: ' rgba(25,0,0,0.4)'
+            }
+        };
+
+
+        var element = {
+            type: 'element',
+            W: elW - elPadding.left - elPadding.right - elBorder.left - elBorder.right,
+            H: elH - elPadding.top - elPadding.bottom - elBorder.left - elBorder.right,
+            posY: elPos.top + elMargin.top + elPadding.top + elBorder.top,
+            posX: elPos.left + elMargin.left + elPadding.left + elBorder.left,
+            color: ' rgba(60,180,255,0.4)'
+        };
+
+
+        var container = {
+            type: 'container',
+            W: elMargin.left + elPadding.left + elMargin.left + elW + elMargin.right + elPadding.right + elMargin.right,
+            H: elMargin.top + elPadding.top + elMargin.top + elH + elMargin.bottom + elPadding.bottom + elMargin.bottom,
+            posY: elPos.top,
+            posX: elPos.left
+        };
 
 
 
-            var padding = {
+            break;   
+        
+             case 'content-box': 
+                        console.log("contentBox");
+                
+                 var padding = {
                 type : 'padding' ,
                 top: {
                     W: elPadding.left + elW + elPadding.right,
@@ -148,7 +289,7 @@ $(document).ready(function() {
             };
             
         
-            let element = {
+            var element = {
                 type : 'element',
                 W : elW,
                 H : elH,
@@ -158,13 +299,20 @@ $(document).ready(function() {
             };    
             
             
-            let container = {
+            var container = {
                 type : 'container',
                 W : elMargin.left + elPadding.left + elMargin.left + elW + elMargin.right + elPadding.right + elMargin.right ,
                 H : elMargin.top + elPadding.top + elMargin.top + elH + elMargin.bottom + elPadding.bottom + elMargin.bottom ,
                 posY : elPos.top,
                 posX : elPos.left
-            }
+            };
+                     
+                     
+                     
+            break;
+        
+        }
+           
 
             ///Dysgap///
             //Affiche des marge dans son lot de span //
@@ -202,7 +350,7 @@ $(document).ready(function() {
 
             };
             drawGap(container);
-           drawGap(element);
+            drawGap(element);
             drawGap(margin);
             drawGap(border);
             drawGap(padding);

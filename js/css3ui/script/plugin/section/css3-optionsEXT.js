@@ -64,7 +64,7 @@ D = {
       serial: '3197-3896-4816-0469',
       unity: 'em',
       prefixCss: true,
-      buffer: '#tampon',
+      buffer: 'BUFFER',
 
       dirProject: '/css3ui/js/yourproject/',
       dirExtract: '/css3ui/js/css3ui/core/css/final',

@@ -1,0 +1,141 @@
+
+/* Projet : crazyburger */
+
+/*Feuille de style : style*/
+/*reset*/
+
+html:not(.EX-UI),body:not(.EX-UI),div:not(.EX-UI),span:not(.EX-UI),applet:not(.EX-UI),object:not(.EX-UI),iframe:not(.EX-UI),h1:not(.EX-UI),h2:not(.EX-UI),h3:not(.EX-UI),h4:not(.EX-UI),h5:not(.EX-UI),h6:not(.EX-UI),p:not(.EX-UI),blockquote:not(.EX-UI),pre:not(.EX-UI),a:not(.EX-UI),abbr:not(.EX-UI),acronym:not(.EX-UI),address:not(.EX-UI),big:not(.EX-UI),cite:not(.EX-UI),code:not(.EX-UI),del:not(.EX-UI),dfn:not(.EX-UI),em:not(.EX-UI),img:not(.EX-UI),ins:not(.EX-UI),kbd:not(.EX-UI),q:not(.EX-UI),s:not(.EX-UI),samp:not(.EX-UI),small:not(.EX-UI),strike:not(.EX-UI),strong:not(.EX-UI),sub:not(.EX-UI),sup:not(.EX-UI),tt:not(.EX-UI),var:not(.EX-UI),b:not(.EX-UI),u:not(.EX-UI),i:not(.EX-UI),center:not(.EX-UI),dl:not(.EX-UI),dt:not(.EX-UI),dd:not(.EX-UI),ol:not(.EX-UI),ul:not(.EX-UI),li:not(.EX-UI),fieldset:not(.EX-UI),form:not(.EX-UI),label:not(.EX-UI),legend:not(.EX-UI),table:not(.EX-UI),caption:not(.EX-UI),tbody:not(.EX-UI),tfoot:not(.EX-UI),thead:not(.EX-UI),tr:not(.EX-UI),th:not(.EX-UI),td:not(.EX-UI),article:not(.EX-UI),aside:not(.EX-UI),canvas:not(.EX-UI),details:not(.EX-UI),embed:not(.EX-UI),figure:not(.EX-UI),figcaption:not(.EX-UI),footer:not(.EX-UI),header:not(.EX-UI),hgroup:not(.EX-UI),menu:not(.EX-UI),nav:not(.EX-UI),output:not(.EX-UI),ruby:not(.EX-UI),section:not(.EX-UI),summary:not(.EX-UI),time:not(.EX-UI),mark:not(.EX-UI),audio:not(.EX-UI),video:not(.EX-UI){
+margin : 0;
+padding : 0;
+border : 0 solid rgba(0,0,0,1);
+font-size : 100%;
+font-family : inherit;
+vertical-align : baseline;
+}
+body:not(.EX-UI){
+line-height : 1;
+overflow-x : hidden;
+}
+article:not(.EX-UI),aside:not(.EX-UI),details:not(.EX-UI),figcaption:not(.EX-UI),figure:not(.EX-UI),footer:not(.EX-UI),header:not(.EX-UI),hgroup:not(.EX-UI),menu:not(.EX-UI),nav:not(.EX-UI),section:not(.EX-UI){
+display : block;
+}
+html:not(.EX-UI),body:not(.EX-UI){
+font-size : 16px;
+width : 100%;
+height : 100%;
+}
+ol:not(.EX-UI),ul:not(.EX-UI){
+list-style-type : none;
+}
+table:not(.EX-UI){
+border-collapse : collapse;
+}
+A:not(.EX-UI){
+text-decoration : none;
+color : rgba(0,0,0,1);
+}
+/*variable*/
+
+.pr-color:not(.EX-UI){
+background-color : rgba(191,54,4,1);
+}
+pr-color-o:not(.EX-UI){
+background : rgba(191,54,4,1);
+background-color : rgba(191,54,4,0.8);
+}
+.pr-color-left:not(.EX-UI){
+background-color : rgba(242,116,5,1);
+}
+pr-color-leftMost:not(.EX-UI){
+background-color : rgba(191,179,4,1);
+}
+pr-color-right:not(.EX-UI){
+background-color : rgba(166,88,60,1);
+}
+pr-color-justRight:not(.EX-UI){
+background-color : rgba(64,27,19,1);
+}
+h1:not(.EX-UI){
+font-size : 18px;
+background-color : rgba(129,131,131,1);
+width : 450px;
+/*float : left;*/
+-webkit-box-sizing : border-box;
+-moz-box-sizing : border-box;
+-o-box-sizing : border-box;
+-ms-box-sizing : border-box;
+box-sizing : border-box;
+height : 350px;
+padding : 2em;
+margin : 1.5em;
+}
+P:not(.EX-UI){
+margin-left : 25px;
+margin-bottom : 6px;
+margin-top : 6px;
+padding : 2em;
+}
+*:not(.EX-UI){
+width : 100%;
+}
+/*Icon hamburger*/
+
+.menu-icon:not(.EX-UI){
+width : 54px;
+height : 54px;
+background : rgba(64,27,19,1);
+-webkit-border-radius : 50%;
+-moz-border-radius : 50%;
+-o-border-radius : 50%;
+-ms-border-radius : 50%;
+border-radius : 50%;
+position : absolute;
+top : 0.5rem;
+right : 0.5rem;
+z-index : 10;
+cursor : pointer;
+}
+.menu-icon span:not(.EX-UI){
+display : block;
+position : absolute;
+content : " ";
+width : 22px;
+height : 2px;
+background-color : rgba(255,255,255,1);
+transform : translateX(-50%) translateY(50%);
+top : 50%;
+left : 50%;
+}
+.menu-icon span::before:not(.EX-UI)::before,.menu-icon span:not(.EX-UI)::after{
+display : block;
+position : absolute;
+width : 22px;
+height : 2px;
+background-color : rgba(255,255,255,1);
+transform : translateY(-6px);
+transition : all 500ms linear 0s;
+content : " ";
+}
+.menu-icon span:not(.EX-UI)::after{
+transform : translateY(6px);
+}
+.menu-icon:hover span::before:not(.EX-UI)::before{
+transform : translateY(-8px);
+}
+.menu-icon:hover span:not(.EX-UI)::after{
+transform : translateY(8px);
+}
+/*menu-icon-cross*/
+
+.menu-icon-cross:not(.EX-UI){
+transition : all 500ms linear 0s;
+}
+.menu-icon-cross span::before:not(.EX-UI)::before,.menu-icon span:not(.EX-UI)::after{
+transform-origin : 50% 50%;
+}
+.menu-icon-cross span:not(.EX-UI){
+transition : background 0.5s linear 0s,transform 0.5s linear 0s;
+}
+.menu-icon-cross svg:not(.EX-UI){
+background : rgba(64,27,19,1);
+}

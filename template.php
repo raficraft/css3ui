@@ -17,22 +17,15 @@
             <section class="kfjkdjfj" id="fjdjfkdjk">    
                     <h1>NewUi</h1>
                     <h1>NewUi</h1>
-                    <h1>NewUi</h1>
-                    <h1 class="test">NewUi</h1>
-                    <h1>NewUi</h1>
-                    <h1>NewUi</h1>
-                    <h1>NewUi</h1>
-                    <h1>NewUi</h1>
+                
             </section>
 
 
             <p>jfkjkejfkjeklfjkeghjk</p>
             <p>jfkjkejfkjeklfjkeghjk</p>
-            <p>jfkjkejfkjeklfjkeghjk</p>
-            <p>jfkjkejfkjeklfjkeghjk</p>
-            <p>jfkjkejfkjeklfjkeghjk</p>
-            <p>jfkjkejfkjeklfjkeghjk</p>
-            <p>jfkjkejfkjeklfjkeghjk</p>
+          
+            
+          
 
 </buffer>
 
