@@ -649,6 +649,7 @@ $('.ui-shazam').each(function(){
 
     }
 $('.css3ui,.css3ui *').addClass('EX-UI');
+$('body *').not('.css3ui, .css3ui *').wrapAll('<buffer></buffer>');
 
 });
 

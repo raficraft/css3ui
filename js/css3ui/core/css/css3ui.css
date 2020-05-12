@@ -1908,7 +1908,7 @@ padding-bottom : 0.375em;
 
 .itemData A{
 font-size : 0.75em;
-max-width : 48px;
+max-width : 50%;
 }
 
 .itemData A:nth-child(2){

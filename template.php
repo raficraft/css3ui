@@ -13,7 +13,7 @@
 
 </head>
 <body class="droppable">
-<buffer>
+
             <section class="kfjkdjfj" id="fjdjfkdjk">    
                     <h1>NewUi</h1>
                     <h1>NewUi</h1>
@@ -27,7 +27,7 @@
             
           
 
-</buffer>
+
 
 
     <?php   include_once('js/css3ui/css3ui.php');   ?>

@@ -64,6 +64,8 @@ box-sizing : border-box;
 height : 350px;
 padding : 2em;
 margin : 1.5em;
+justify-content : space-between;
+align-content : flex-start;
 }
 P{
 margin-left : 25px;

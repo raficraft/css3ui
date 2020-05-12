@@ -68,6 +68,16 @@ box-sizing : border-box;
 height : 350px;
 padding : 2em;
 margin : 1.5em;
+-webkit-justify-content : space-between;
+-moz-justify-content : space-between;
+-o-justify-content : space-between;
+-ms-justify-content : space-between;
+justify-content : space-between;
+-webkit-align-content : flex-start;
+-moz-align-content : flex-start;
+-o-align-content : flex-start;
+-ms-align-content : flex-start;
+align-content : flex-start;
 }
 P:not(.EX-UI){
 margin-left : 25px;
