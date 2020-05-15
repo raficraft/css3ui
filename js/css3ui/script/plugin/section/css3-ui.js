@@ -864,7 +864,6 @@ $(document).on('change','#css3ui-search',function(){
 
 
 $(document).on('change','#newRule',function(){$(this).createRule('newRule'); });
-$(document).on('click', '.selCss', function(e){e.preventDefault(); $(this).toggleClass('light'); $(this).createRule('selDom'); return false;  }); 
 $(document).on('mouseover', '.selCss', function(e){
     e.preventDefault(); console.log("OVER SA MERE");
         let el = $(this).attr('href');  $(this).displayDomEl(el);

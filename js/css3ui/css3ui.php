@@ -43,8 +43,10 @@ include_once('core/php/core.php');
 
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/dom/displayDom.js"></script>
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/dom/css3-dom2.js"></script>
+<script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/dom/actionDomUI.js"></script>
 
 
 
 <script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/css3-load.js"></script>
+<script type="text/javascript" src="/css3ui/js/css3ui/script/plugin/section/actionUI.js"></script>
 

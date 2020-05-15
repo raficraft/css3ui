@@ -17,6 +17,7 @@ $(document).ready(function() {
       
     var balise = $(this).tagName();
         console.log(balise);
+        console.log(action);
     switch(balise){         
             case 'A' : 
                 switch(action){
@@ -649,7 +650,7 @@ $('.ui-shazam').each(function(){
 
     }
 $('.css3ui,.css3ui *').addClass('EX-UI');
-$('body *').not('.css3ui, .css3ui *').wrapAll('<buffer></buffer>');
+$('body  > *').not('.css3ui, .css3ui *').wrapAll('<buffer></buffer>');
 
 });
 

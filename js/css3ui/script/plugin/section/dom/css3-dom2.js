@@ -18,26 +18,26 @@ $(document).ready(function () {
             browseDomClick = [];
             incClick = 0;
 
-            $(document).on("mouseover", "buffer:not('.EX-UI') , buffer *:not('.EX-UI')",function(e){
+            $(document).on("mouseover", "buffer:not('.EX-UI') , buffer *:not('.EX-UI')", function (e) {
 
                 //console.log(domSelec);
                 // console.log(pathDom);
-       
+
 
                 e.preventDefault();
                 let cible = $(this).tagName();
-                
+                console.log(cible);
+
                 console.log('mouseover : ' + cible);
                 if (cible !== 'BUFFER') {
-                    domSelec[inc] = '<p id=""selec' + inc + '" class="blocRule EX-UI"><a href="' + cible + '" class="selCss EX-UI" data-type="cible" data-action="createRule">' + cible + '</a>';
+                    domSelec[inc] = '<p id="selec_" class="blocRule EX-UI" data-attr="selec_"><a href="' + cible + '" class="selCss EX-UI" data-type="cible" data-actionUI="createRule">' + cible + '</a>';
                     pathDom[inc] = cible;
 
                     if ($(this).attr('id')) {
                         let thisID = '#' + $(this).attr('id').replace(/\s/g, '');
                         //console.log('ID du selecteur : '+thisID);
-                        domSelec[inc] += '<a href="' + thisID + '" class="selCss EX-UI" data-type="id" data-action="createRule" >' + thisID + '</a>';
+                        domSelec[inc] += '<a href="' + thisID + '" class="selCss EX-UI" data-type="id" data-actionUI="createRule" >' + thisID + '</a>';
                         pathDom[inc] += thisID;
-
                     }
 
 
@@ -51,7 +51,7 @@ $(document).ready(function () {
                         $.each(tabClass, function (key, val) {
                             if (val !== 'CMA-displayDom' || val !== 'activeSyd' || val !== 'ui-droppable' || val !== 'droppable') {
                                 thisClass = '.' + val;
-                                exClass[key] = '<a href="' + thisClass + '"  class="selCss EX-UI" data-type="class" data-action="createRule">' + thisClass + '</a>';
+                                exClass[key] = '<a href="' + thisClass + '"  class="selCss EX-UI" data-type="class" data-actionUI="createRule">' + thisClass + '</a>';
                                 pathClass[key] = '.' + val;
                             }
                         });
@@ -65,17 +65,37 @@ $(document).ready(function () {
                         pathClass = [];
                     }
 
-                  
+
                     //console.log(domSelec);
                     //console.log(pathDom);
                     domSelec[inc] += '</p>';
                     inc++;
-                
+
                 }
 
                 if (cible === 'BUFFER' && domSelec.length > 0) {
+
+
+                let buildSelec = [];
+                if(domSelec.length >= D.dom.domLimit && D.dom.domLimit !== false && D.dom.domLimit > 0){
+                    $.each(domSelec,function(key, val){
+
+                        buildSelec[key] = val;
+                        
+                        if(key === D.dom.domLimit -1 ){
+                            
+                            return false;
+                        }
+                    });
+                    console.table(buildSelec);
+                    domSelec = buildSelec;
+                    buildSelec = [];
                     
-              
+                } 
+                
+               
+                
+                  
 
                     domSelec.reverse();
                     pathDom.reverse();
@@ -91,11 +111,10 @@ $(document).ready(function () {
                         //console.table(localStorage);
                         //Doit ce faire au clic dans l'element créer par displayDomEl
                         //On passe à dysplaydomEl
-
-                        console.error(domPath);    
-                        $(this).displayDomEl(domPath+':not(.EX-UI)');
-
+                        console.error(domPath);
+                        $(this).displayDomEl(domPath + ':not(.EX-UI)');
                     }
+
                     thisId = '';
                     domSelec = [];
                     pathDom = [];
@@ -105,13 +124,12 @@ $(document).ready(function () {
                     domPath = '';
 
                 } else if (cible === "BUFFER" && domSelec.length === 0) {
-
                     D.dom.domPath = '';
                     D.dom.domSelector = '';
                 }
 
 
-            }).on("click", "buffer:not('.EX-UI') , buffer *:not('.EX-UI')",function (e) {
+            }).on("click", "buffer:not('.EX-UI') , buffer *:not('.EX-UI')", function (e) {
 
                 e.preventDefault();
                 let cible = $(this).tagName();
@@ -125,9 +143,26 @@ $(document).ready(function () {
 
                     $('#selAdd > p').remove();
 
-                  
-                        $('#selAdd').append(D.dom.domSelector);
-                    
+
+                    $('#selAdd').append(D.dom.domSelector);
+
+                    // on tire une valeur et on lui definié un index maValeur = 0,2,45, 
+                    //Ce qui définie les index dans le bon ordre
+
+                    addInc = (el) => {
+
+                        $("[data-attr='" + el + "']").each(function (k) {
+                            console.log($(this).attr('id'));
+                            $(this).attr('id', 'selec_' + k)
+                        })
+
+
+                    };
+
+                    let el = 'selec_';
+                    addInc(el);
+
+
 
                     browseDomClick = [];
                     incClick = 0;
@@ -136,9 +171,10 @@ $(document).ready(function () {
                     //Ce qui annule l'affichage au survol
                     //Quand on reclic sur cette élément cela réactive l'affichage au survol
 
-                    if( D.dom.fixSelector === false ){ $(this).bindORunbindViewDom('fix'); }else{                         
-                        
-                        $(this).displayDomEl(D.dom.domPath+':not(.EX-UI)');
+                    if (D.dom.fixSelector === false) {
+                        $(this).bindORunbindViewDom('fix');
+                    } else {
+                        $(this).displayDomEl(D.dom.domPath + ':not(.EX-UI)');
                         $(this).bindORunbindViewDom('unFix');
                     }
 
@@ -153,9 +189,9 @@ $(document).ready(function () {
         } else {
 
 
-                    $('.displayDom').each(function () { $(this).remove(); });
-                    $("buffer *").not('.EX-UI').unbind('click');        
-                    $('buffer *').not('.EX-UI').unbind('mouseover'); 
+            $('.displayDom').each(function () { $(this).remove(); });
+            $("buffer *").not('.EX-UI').unbind('click');
+            $('buffer *').not('.EX-UI').unbind('mouseover');
 
         }
 
@@ -167,11 +203,11 @@ $(document).ready(function () {
             case 'unFix':
 
                 console.log('On idéfixe ;)');
-                D.dom.fixSelector = false;                
+                D.dom.fixSelector = false;
                 $('.displayEl').css('background-image', '');
                 $('.displayEl').css('background', 'rgba(60,180,255,0.4)');
- 
-            break;
+
+                break;
 
             case 'fix':
                 console.log('On fixe');
@@ -179,28 +215,28 @@ $(document).ready(function () {
                 $('.displayEl').css('background-image', 'url(' + D.param.dirImg + '/base/ui/cross.png)');
                 console.log($('.displayEl').css('background-image'));
                 D.dom.fixSelector = true;
-            break;
-            
+                break;
+
             ///////////////////////////////////////
-            
-            case 'bindAndUnbLock' : 
-                
-                 console.log('On défixe');
+
+            case 'unfixAndUnbLock':
+
+                console.log('On défixe');
                 D.dom.fixSelector = false;
                 D.dom.blockSelector = false;
-                
-            break;
-            
-            case 'unbindAndBLock' : 
-         
-                 console.log('On fixe');
+
+                break;
+
+            case 'fixAndBLock':
+
+                console.log('On fixe');
                 $('.displayEl').css('background-image', 'url(' + D.param.dirImg + '/base/ui/cross.png)');
                 D.dom.fixSelector = true;
                 D.dom.blockSelector = true;
-                
-            break;
-            
-          
+
+                break;
+
+
         }
 
     };
@@ -208,14 +244,11 @@ $(document).ready(function () {
 
 
     $(document).on('mouseover', '.itemData-ruleHtml:not(.itemData-comment)', function () {
-        
-         console.error(D.dom.fixSelector);      
-         var ui = $(this).children('A').data('groupname');
-         var thisRule = $(this).splitRuleHtml(ui);       
-         $(this).displayDomEl(thisRule);
-         
 
-
+        console.error(D.dom.fixSelector);
+        var ui = $(this).children('A').data('groupname');
+        var thisRule = $(this).splitRuleHtml(ui);
+        $(this).displayDomEl(thisRule);
     });
 
     $(document).on('mouseover', '.itemData-comment:not(.itemData-ruleHtml)[data-level="1"] > A', function () {

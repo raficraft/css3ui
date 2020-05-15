@@ -9,7 +9,6 @@ $(document).ready(function() {
       
          
      $(el+':not(.EX-UI)').each(function(key){ 
-            console.log($(this));
      if ($(this).css) {
 
             var elMargin = {}, elPadding = {}, elBorder = {}, elPos = {};
@@ -45,19 +44,12 @@ $(document).ready(function() {
 
         $(this).css('box-sizing') ? boxSize = $(this).css('box-sizing') : boxSize = 'content-box';
 
-        console.error(boxSize);
-        console.log('largeur de l élément : ' + elW);
-        console.log('hauteur de l élément : ' + elH);
-        console.table(elPos);
-
+     
         switch (boxSize) {
 
             case 'border-box':
 
 
-                console.log('box - sizing = border-box or padding-box');
-                
-                
                 
         var padding = {
             type: 'padding',
@@ -184,7 +176,6 @@ $(document).ready(function() {
             break;   
         
              case 'content-box': 
-                        console.log("contentBox");
                 
                  var padding = {
                 type : 'padding' ,
