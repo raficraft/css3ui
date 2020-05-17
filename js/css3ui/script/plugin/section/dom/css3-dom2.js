@@ -18,7 +18,7 @@ $(document).ready(function () {
             browseDomClick = [];
             incClick = 0;
 
-            $(document).on("mouseover", "buffer:not('.EX-UI') , buffer *:not('.EX-UI')", function (e) {
+            $(document).on('mouseover', "buffer:not('.EX-UI') , buffer *:not('.EX-UI')", function (e) {
 
                 //console.log(domSelec);
                 // console.log(pathDom);
@@ -129,7 +129,7 @@ $(document).ready(function () {
                 }
 
 
-            }).on("click", "buffer:not('.EX-UI') , buffer *:not('.EX-UI')", function (e) {
+            }).on('click', "buffer:not('.EX-UI') , buffer *:not('.EX-UI')", function (e) {
 
                 e.preventDefault();
                 let cible = $(this).tagName();

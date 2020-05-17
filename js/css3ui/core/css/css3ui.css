@@ -5,13 +5,9 @@ line-height : 1.5em;
 font-family : times new roman;
 }
 
-
-
 .css3ui h1,.css3ui h2,.css3ui h3,.css3ui h4,.css3ui h5,.css3ui h6{
 color : rgba(51,51,51,1);
 }
-
-
 
 .css3ui h2{
 font-size : 1.375em;
@@ -45,9 +41,11 @@ text-decoration : none;
 color : rgba(166,166,166,1);
 list-style: none;
 }
+
 .css3ui ul ,.toolsIcon ul{
 
 }
+
 .css3ui p{
 margin-bottom : 0;
 margin : 0;

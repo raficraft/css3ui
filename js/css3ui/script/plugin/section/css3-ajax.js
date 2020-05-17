@@ -113,7 +113,7 @@ $(document).ready(function () {
                 $('[data-projectname="' + $.cookie('project') + '"]').addClass('tabProject-active');
                 //Passe l'interface sur les feuilles de style                     
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
                 $(this).zeRuleIsTheLast();//???
 
             }
@@ -183,7 +183,7 @@ $(document).ready(function () {
                     case 'sheet':
 
                         $(this).listSheet(R);
-                        $(this).openGroup(tabListOpen);
+                        $(this).openThisGroup(tabListOpen);
                         $.cookie('sheet', R.newData);
 
                         break;
@@ -200,7 +200,7 @@ $(document).ready(function () {
                         }
 
                         $(this).listSheet(R);
-                        $(this).openGroup(tabListOpen);
+                        $(this).openThisGroup(tabListOpen);
 
                         break;
 
@@ -362,7 +362,7 @@ $(document).ready(function () {
 
                 console.log(R);
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
                 $('.styleSheet').scrollTop($.cookie('posList'));
             }
         });
@@ -383,7 +383,7 @@ $(document).ready(function () {
             } else {        /*  $(this).flash('success','Group Ajouter'); */
 
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
 
 
                 var thisEl = $('[data-el="clickArrow_' + R.idNewGroup + '"]');
@@ -415,7 +415,7 @@ $(document).ready(function () {
             } else {
                 /* $(this).flash('valid','Suppression réussie '+R.idlinkgroup);*/
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
 
                 console.log('deleteGroup');
 
@@ -458,7 +458,7 @@ $(document).ready(function () {
                 console.log(R);
 
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
 
                 console.log('on check le scroll des coord html');
                 if ($.cookie('posList')) {
@@ -483,7 +483,7 @@ $(document).ready(function () {
             } else {        /*  $(this).flash('success','enable/disable'); */
                 console.log(R);
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
 
                 $('.styleSheet').scrollTop($.cookie('posList'));
             }
@@ -506,7 +506,7 @@ $(document).ready(function () {
             } else {        /*  $(this).flash('valid','Suppression de rule réussie');*/
 
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
                 $(this).closeToCall();
 
             }
@@ -529,7 +529,7 @@ $(document).ready(function () {
             } else {        /*  $(this).flash('valid','Enable/Disable RULE');*/
 
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
                 $(this).closeToCall();
                 $('.styleSheet').scrollTop($.cookie('posList'));
             }
@@ -554,7 +554,7 @@ $(document).ready(function () {
             if (R.error) {   /* $(this).flash('alert',R.error); console.log(R.responseText);*/
             } else {         /* $(this).flash('valid','Cette valeur css est importante');*/
                 $(this).listSheet(R);
-                $(this).openGroup(tabListOpen);
+                $(this).openThisGroup(tabListOpen);
                 $(this).closeToCall();
 
                 $('.styleSheet').scrollTop($.cookie('posList'));
@@ -682,7 +682,7 @@ $(document).ready(function () {
 
                 if (moveMultiBack === true) {
 
-                    var el = $('[data-css3ui="openGroup"][data-groupName="' + $.cookie('ruleHtml') + '"]');
+                    var el = $('[data-actionUI="openGroup"][data-groupName="' + $.cookie('ruleHtml') + '"]');
                     var thisObj = $(this).constructDataListSheet(el);
                     $(this).dataRule(thisObj);
 
@@ -727,7 +727,7 @@ $(document).ready(function () {
                 var countThis = $(this).countRule(thisData);
                 console.log('la rule est compter : ' + countThis + ' fois');
                 console.log($.type(countThis));
-                var thisEl = $('[data-css3ui="openGroup"][data-groupname="' + thisData + '"]');
+                var thisEl = $('[data-actionUI="openGroup"][data-groupname="' + thisData + '"]');
                 var dataEl = thisEl.data();
                 console.log(dataEl);
 
@@ -760,7 +760,7 @@ $(document).ready(function () {
                 var countThis = $(this).countRule(thisData);
                 console.log('la rule est compter : ' + countThis + ' fois');
                 console.log($.type(countThis));
-                var thisEl = $('[data-css3ui="openGroup"][data-groupname="' + thisData + '"]');
+                var thisEl = $('[data-actionUI="openGroup"][data-groupname="' + thisData + '"]');
                 var dataEl = thisEl.data();
 
                 if (countThis > 0) {

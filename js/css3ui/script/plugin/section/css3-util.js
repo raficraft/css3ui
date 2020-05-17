@@ -572,7 +572,7 @@ $(document).ready(function () {
             console.log(dataListSelect);
 
 
-            $('[data-css3ui="listRule"].illuminate').each(function () {
+            $('[data-actionUI="listRule"].illuminate').each(function () {
                 $(this).toggleClass('illuminate');
             });
 
@@ -849,7 +849,7 @@ $(document).ready(function () {
 
 
         var x = 0;
-        $('[data-css3ui="openGroup"][data-groupname="' + rule + '"]').each(function () {
+        $('[data-actionUI="openGroup"][data-groupname="' + rule + '"]').each(function () {
             console.log('yep');
             console.log($(this).data());
             x++;
@@ -1097,7 +1097,7 @@ $(document).ready(function () {
         thisData = [];
         thisData = thisObj.data();
         thisData.itsMe = thisObj;
-        thisData.thisAction = thisObj.data('css3ui');
+        thisData.thisAction = thisObj.data('actionui');
 
         if (thisData.myparent === 0) {
             console.log('level0');
@@ -1203,7 +1203,7 @@ $(document).ready(function () {
 
     $.fn.lightGroup = function (elData) {
 
-        $('[data-css3ui="listRule"].illuminate').each(function () {
+        $('[data-actionUI="listRule"].illuminate').each(function () {
             $(this).toggleClass('illuminate');
         });
 

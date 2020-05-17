@@ -299,41 +299,7 @@ $('.tabBasic').each(function(event){
 });  
 
 
-$(document).on('click', '[data-jq="duplicate"]', function (e,transmit) {
-      
-        console.log('error click');
-    if(transmit!==false){
-       transmit = true;
-    }
-    
-    var action = $(this).data('duplicate');      
-    var zeGroup = $(this).parent().parent(); 
-    var format = zeGroup.data('group');
-      
-        console.log(action);
-        if(action==='add-data'){
-            
-            
-            var zeClone = zeGroup.clone(true);   
-            zeClone.insertAfter(zeGroup);
-            e.preventDefault(); 
-        
-        }else if(action==='del-data'){
-            if($('[data-group="'+format+'"]').length > 1){               
-                $(this).parent().parent().remove();
-            }
-        }
-        /** On Ré-incremente les groupes et les input **/
-              
-            $(this).incrementGroup(format); 
-            if(transmit === true){
-            if(format==='gradient'){format='multiBack';}              
-            dataPrev.format = format;
-           // $(this).preview(true);
-            }
-        return false;    
-        
-});            
+          
 
             
 $('[data-jq="delRules"]').click(function(e){
@@ -1077,16 +1043,10 @@ if(thisSource.id === 'css3ui-lightBox'){console.log('close'); $(this).closeToCal
 
 $(document).on('click','.thisProject', function(e){ 
     
+    //element unique essayé un .find plutot qu'un each
     
-    $('#tabProject .tabProject-active').each(function(){
-       
-        $(this).removeClass('tabProject-active');
-        
-    });
-    
+    $('#tabProject .tabProject-active').each(function(){ $(this).removeClass('tabProject-active'); });    
         $(this).addClass('tabProject-active');
-
-
 });
 
 
@@ -1108,14 +1068,10 @@ $(document).on('click','li.itemData', function(){
 });
    */ 
     
-$(document).on('click','.css3ui *[data-css3ui]', function(e,close){ 
+$(document).on('click','.css3ui *[data-actionUI]', function(e,close){ 
     
-     if(!close){close = false;}
+    if(!close){close = false;}
     console.log('default');
-    
-  
-  
-    
 
 var thisData = $(this).constructDataListSheet($(this));
                 
@@ -1151,6 +1107,7 @@ var thisData = $(this).constructDataListSheet($(this));
                     }else{ 
                         console.log('la donnée est dans le tableau reclique');
                         if(close===true){
+                            console.error('close true');
                             thisData.myBroth.trigger('click',true);
                         }else  if(close===false){
                             thisData.myBroth.trigger('click',false);
@@ -1177,14 +1134,14 @@ var thisData = $(this).constructDataListSheet($(this));
                 //Eclairage l'element listRule;
                 //Un seul element listRule allumer à la fois
                 
-                $('[data-css3ui="listRule"].illuminate').each(function(){
+                $('[data-actionUI="listRule"].illuminate').each(function(){
                     $(this).toggleClass('illuminate');
                 });
                 
              
                 
                 if(close===true){                 
-                    
+                    console.error('close true');
                     if(thisData.itsMe.hasClass('illuminate')){
                        thisData.itsMe.toggleClass('illuminate'); 
                     }                    

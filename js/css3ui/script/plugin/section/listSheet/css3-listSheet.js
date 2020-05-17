@@ -95,7 +95,7 @@ $.each(el,function(key,thisEl){
                         data-state="'+thisEl.actif+'" \n\
                         '+haveRuleCss+' \n\
                         data-myparent="'+thisEl.myParent+'">\n\
-                        <a class="EX-UI" data-css3ui="openGroup" data-el="clickArrow_'+thisEl.idToGroup+'" \n\
+                        <a class="EX-UI" data-actionUI="openGroup" data-el="clickArrow_'+thisEl.idToGroup+'" \n\
                         data-table="group" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -107,7 +107,7 @@ $.each(el,function(key,thisEl){
                         data-state="'+thisEl.actif+'" \n\
                         '+haveRuleCss+' \n\
                         data-myparent="'+thisEl.myParent+'">&#9654</a>\n\
-                        <a class="EX-UI" data-css3ui="listRule"  data-el="clickGroup_'+thisEl.idToGroup+'" \n\
+                        <a class="EX-UI" data-actionUI="listRule"  data-el="clickGroup_'+thisEl.idToGroup+'" \n\
                         data-table="group" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -119,7 +119,7 @@ $.each(el,function(key,thisEl){
                         data-state="'+thisEl.actif+'" \n\
                         '+haveRuleCss+' \n\
                         data-myparent="'+thisEl.myParent+'">'+thisEl.groupName+'</a>\n\
-                        <a class="EX-UI" data-css3ui="addRule"  data-el="clickGroup_'+thisEl.idToGroup+'" \n\
+                        <a class="EX-UI" data-actionUI="addRule"  data-el="clickGroup_'+thisEl.idToGroup+'" \n\
                         data-table="group" \n\
                         data-idgroup="'+thisEl.idGroup+'" \n\
                         data-groupformat="'+thisEl.format+'" \n\
@@ -442,7 +442,7 @@ $('#styleDb,#css3ui-listData').empty();
 };
 
 
-$.fn.openGroup = function(thisTab,findData){
+$.fn.openThisGroup = function(thisTab,findData){
      if(!findData){ close = true;}
         console.log(thisTab);
     
@@ -519,17 +519,17 @@ tabListOpen = [];
         console.log('refabrique le tableau des group ouverts quand on change de feuille de style');
         console.log(sheet);
         
-        var lgt =$('#'+sheet+' [data-css3ui="openGroup"].illuminate').length;
+        var lgt =$('#'+sheet+' [data-actionUI="openGroup"].illuminate').length;
         
         if(lgt>0){
-        $('#'+sheet+' [data-css3ui="openGroup"].illuminate').each(function(){
+        $('#'+sheet+' [data-actionUI="openGroup"].illuminate').each(function(){
             
             
             console.log($(this).data());
             var thisData = $(this).data();            
             tabListOpen.push(thisData.idlinkgroup); 
             
-            var myBrother = $(this).siblings('A[data-css3ui="listRule"]');
+            var myBrother = $(this).siblings('A[data-actionUI="listRule"]');
             
             if(myBrother.hasClass('illuminate')){
                 console.log("je suis le dernier group ouvert");

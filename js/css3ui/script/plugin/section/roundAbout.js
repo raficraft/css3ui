@@ -30,6 +30,17 @@ $(document).on('click',"[data-actionUI]",function(e){
                     case ('createRule') :
                         $(this).selDom();                    
                     break;                    
+                    case ('duplicate') :
+                        $(this).duplicateORdelItem();                    
+                    break;   
+                    case ('openGroup') :
+                    /*    console.log($(this));
+                        $(this).openGroup(e);      */      
+                    break;   
+                    case ('listRule') :
+                       /* $(this).listRule(e);    */          
+                    break;   
+                
                 }            
             break;
     }
