@@ -45,7 +45,7 @@ D = {
     dom: {
         domPath: '',
         domSelector: '',
-        domLimit : 5,
+        domLimit : false,
         fixSelector : false,
         blockSelector : false
     }

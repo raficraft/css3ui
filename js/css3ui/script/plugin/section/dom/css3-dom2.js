@@ -189,9 +189,9 @@ $(document).ready(function () {
         } else {
 
 
-            $('.displayDom').each(function () { $(this).remove(); });
-            $("buffer *").not('.EX-UI').unbind('click');
-            $('buffer *').not('.EX-UI').unbind('mouseover');
+            $('.displayDom').each(function () { $(this).remove(); });            
+            $(document).off('mouseover', "buffer:not('.EX-UI') , buffer *:not('.EX-UI')");
+            $(document).off('click', "buffer:not('.EX-UI') , buffer *:not('.EX-UI')");
 
         }
 
